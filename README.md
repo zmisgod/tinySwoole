@@ -1,6 +1,6 @@
 # TinySwoole
 
-这是一个很简单的基于swoole的http框架，这也是我边看easyswoole框架边写的框架，主要实现了基础的`swoole_http_server`的功能。就是为了使用者了解如何swoole如何工作以及与常见的fpm的区别。
+这是一个很简单的基于swoole的http框架，这也是我边看easyswoole框架边写的框架，主要实现了基础的`swoole_http_server`的功能。就是为了让使用者了解如何使用swoole以及与常见的fpm的区别。
 
 ### 使用
 
