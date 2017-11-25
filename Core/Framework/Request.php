@@ -3,7 +3,7 @@ namespace Core\Framework;
 
 use Core\IO\Stream;
 
-class Request
+class Request extends BaseRequest
 {
     private static $instance;
     private $swoole_http_request = null;
@@ -18,10 +18,10 @@ class Request
     private $files;
     private $protocolVersion;
 
-    static function getInstance(\swoole_http_request $swoole_request)
+    static function getInstance(\swoole_http_request $swoole_request = null)
     {
         if($swoole_request !== null) {
-            self::$instance = $swoole_request;
+            self::$instance = new Request($swoole_request);
         }
         return self::$instance;
     }
@@ -41,7 +41,7 @@ class Request
 
         $this->method = $this->swoole_http_request->server['request_method'];
 
-        $this->header = $this->parseHeader()->getHeaders();
+        $this->header = $this->getHeaders();
 
         $this->files = $this->parseFiles();
 
@@ -50,16 +50,16 @@ class Request
         $this->get = $this->parseGet();
 
         $this->post = $this->parsePost();
+
+        parent::__construct($this->header, $this->body, $this->protocolVersion);
     }
 
     public function parseHeader()
     {
-        $headerObj = new Header();
         $headers = $this->swoole_http_request->header;
         foreach ($headers as $header => $val) {
-            $headerObj->appendHeader($header, $val);
+            $this->appendHeader($header, $val);
         }
-        return $headerObj;
     }
 
     /**
