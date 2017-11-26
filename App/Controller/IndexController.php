@@ -5,8 +5,8 @@ use Core\Framework\AbstractController;
 
 class IndexController extends AbstractController
 {
-    public function over()
+    public function benchmark()
     {
-        $this->response()->write('hello world');
+        $this->response()->write("hello world");
     }
 }

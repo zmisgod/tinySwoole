@@ -12,28 +12,18 @@ class Server
 
     protected $server;
 
-    public $server_config = [
-        'host' => '127.0.0.1',
-        'port' => 9519,
-        'setting' => [
-            'task_worker_num' => 2, //异步任务进程
-            "task_max_request" => 10,
-            'max_request' => 1000,//强烈建议设置此配置项
-            'worker_num' => 2,
-            "log_file" => __DIR__ . "/swoole.log",
-            'pid_file' => __DIR__ . "/pid.pid",
-        ]
-    ];
+    public $server_config;
 
-    function __construct()
+    function __construct($config)
     {
+        $this->server_config = $config;
         $this->server = new \swoole_http_server($this->server_config['host'], $this->server_config['port']);
     }
 
-    public static function getInstance()
+    public static function getInstance($config)
     {
         if (!self::$instance) {
-            self::$instance = new static();
+            self::$instance = new static($config);
         }
         return self::$instance;
     }
@@ -147,6 +137,3 @@ class Server
         });
     }
 }
-
-$res = new Server();
-$res->startServer();
