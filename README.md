@@ -9,13 +9,13 @@ clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`�
 ### 路由 
 
 ###### `http://127.0.0.1:9519/index/benchmark`
-在App\Controller\IndexController中的benchmark()，并且需要此方法为public
+在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）
 
 
 ### 配置文件
 
 配置文件在Config文件夹中。获取配置文件示例：
-###### `$serverConfig = Config::getInstance();->getConfig('config.server');`
+###### `$serverConfig = Config::getInstance()->getConfig('config.server');`
 其中，config为Config下的config.php文件
 
 ### Tips
