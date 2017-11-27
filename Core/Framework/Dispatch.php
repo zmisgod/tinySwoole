@@ -41,8 +41,6 @@ class Dispatch
                 throw new \Exception('method is not a public function');
             }
             $classObj = $instanceClass->newInstance();
-            $classObj->setRequest($request);
-            $classObj->setResponse($response);
             $classObj->__call($mName);
         }
     }

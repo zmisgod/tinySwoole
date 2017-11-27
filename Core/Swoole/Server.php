@@ -59,9 +59,9 @@ class Server
         $this->getServer()->on('request',
             function (\swoole_http_request $swoole_request, \swoole_http_response $swoole_response) {
                 //框架请求的类
-                $userRequest = new Request($swoole_request);
+                $userRequest = Request::getInstance($swoole_request);
                 //框架响应的类
-                $userResponse = new Response($swoole_response);
+                $userResponse = Response::getInstance($swoole_response);
                 //框架路由
                 Dispatch::getInstance()->dispatch($userRequest, $userResponse);
                 //获取当前请求框架的状态码

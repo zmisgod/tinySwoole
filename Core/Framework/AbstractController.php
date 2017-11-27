@@ -8,16 +8,6 @@ abstract class AbstractController
     protected $swoole_request;
     protected $swoole_response;
 
-    public function setRequest(Request $request)
-    {
-        $this->swoole_request = $request;
-    }
-
-    public function setResponse(Response $response)
-    {
-        $this->swoole_response = $response;
-    }
-
     function actionName($actionName = null)
     {
         if($actionName === null) {
@@ -29,12 +19,12 @@ abstract class AbstractController
 
     function request()
     {
-        return $this->swoole_request;
+        return Request::getInstance();
     }
 
     function response()
     {
-        return $this->swoole_response;
+        return Response::getInstance();
     }
 
     function __call($actionName, $arguments = null)
