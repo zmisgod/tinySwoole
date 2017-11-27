@@ -2,9 +2,11 @@
 
 namespace Core\Swoole;
 
+use Core\Framework\AbstractTask;
 use Core\Framework\Dispatch;
 use Core\Framework\Request;
 use Core\Framework\Response;
+use Core\Uti\Tools\Config;
 
 class Server
 {
@@ -122,16 +124,34 @@ class Server
 
     private function onTask()
     {
-        $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
-            echo $data;
-        });
+        $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
+        if($task_num) {
+            $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
+                try{
+                    if(is_string($data) && class_exists($data)) {
+                        $data = new $data();
+                    }
+                    if($data instanceof AbstractTask) {
+                        return $data->handleTask($server, $taskId, $workerId);
+                    }
+                    return null;
+                }catch (\Exception $e) {
+                    return null;
+                }
+            });
+        }
     }
 
     private function onTaskFinish()
     {
-        $this->getServer()->on("finish", function (\swoole_http_server $server, $taskId, $taskObj) {
-            echo 'task finish'.PHP_EOL;
-        });
+        $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
+        if($task_num) {
+            $this->getServer()->on("finish", function (\swoole_http_server $server, $taskId, $taskObj) {
+                if($taskObj instanceof AbstractTask) {
+                    return $taskObj->finishTask($server, $taskId, $taskObj);
+                }
+            });
+        }
     }
 
     private function workerError()
