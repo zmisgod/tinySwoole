@@ -86,7 +86,7 @@ class Server
                 //结束Http响应，发送HTML内容
                 $swoole_response->end();
                 //设置这次请求结束
-                $userResponse->end();
+                Response::getInstance()->end();
             });
     }
 

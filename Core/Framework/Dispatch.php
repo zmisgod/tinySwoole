@@ -1,6 +1,8 @@
 <?php
 namespace Core\Framework;
 
+use Core\Uti\Tools\Register;
+
 class Dispatch
 {
     static $instance;
@@ -34,14 +36,20 @@ class Dispatch
             $mName = 'index';
         }
         $className = 'App\Controller\\'.ucfirst($cName).'Controller';
-        if(file_exists(ROOT.'/'.str_replace('\\', '/', rtrim($className)).'.php')) {
-            $instanceClass = new \ReflectionClass($className);
-            $res = $instanceClass->getMethod($mName);
-            if (!$res->isPublic()) {
-                throw new \Exception('method is not a public function');
+        $result = Register::getInstance()->getPool($className);
+        if(!$result) {
+            if(file_exists(ROOT.'/'.str_replace('\\', '/', rtrim($className)).'.php')) {
+                $instanceClass = new \ReflectionClass($className);
+                $res = $instanceClass->getMethod($mName);
+                if (!$res->isPublic()) {
+                    throw new \Exception('method is not a public function');
+                }
+                $result = $instanceClass->newInstance();
+                Register::getInstance()->setPool($className, $result);
             }
-            $classObj = $instanceClass->newInstance();
-            $classObj->__call($mName);
+        }
+        if($result) {
+            $result->__call($mName);
         }
     }
 }
