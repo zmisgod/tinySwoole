@@ -50,8 +50,7 @@ server {
 
 ### 性能
 
-机器
-![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/machine.png)
+机器: CPU: i5, RAM: 8G, OS: maxOS Sierra 10.12.6
 
 报告
 ![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v1.png)
