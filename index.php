@@ -1,5 +1,5 @@
 <?php
-define('ROOT', __DIR__.'/../');
+define('ROOT', __DIR__);
 require_once ROOT.'/Core/Uti/Tools/AutoLoader.php';
 use \Core\Uti\Tools\AutoLoader;
 use \Core\Swoole\Server;

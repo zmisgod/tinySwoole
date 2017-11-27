@@ -4,12 +4,12 @@
 
 ## 使用
 
-clone代码后直接在cli中执行php Public/index.php，默认端口绑定在`9519`端口上。
+clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`端口上。
 
 ### 路由 
 
 ###### `http://127.0.0.1:9519/index/benchmark`
-在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）
+在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
 
 
 ### 配置文件
@@ -31,11 +31,17 @@ server {
     server_name your.server.name;
     root to/your/path/TinySwoole/Public/;
     location / {
-         # 判断文件是否存在，如果不存在，代理给Swoole
-         if (!-e $request_filename){
-             proxy_pass http://127.0.0.1:9519;
-         }
-     }
+        proxy_http_version 1.1;
+        proxy_set_header Connection "keep-alive";
+        proxy_set_header X-Real-IP $remote_addr;
+        # 判断文件是否存在，如果不存在，代理给Swoole
+        if (!-e $request_filename){
+            proxy_pass http://127.0.0.1:9519;
+        }
+        if ( $request_uri = '/') {
+            proxy_pass http://127.0.0.1:9519;
+        } 
+    }
 }
 ```
 ### 静态文件

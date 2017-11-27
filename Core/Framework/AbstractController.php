@@ -5,8 +5,6 @@ abstract class AbstractController
 {
     protected $actionName = null;
     protected $callArgs = null;
-    protected $swoole_request;
-    protected $swoole_response;
 
     function actionName($actionName = null)
     {
@@ -16,6 +14,13 @@ abstract class AbstractController
             $this->actionName = $actionName;
         }
     }
+
+    /**
+     * 默认的方法
+     *
+     * @return mixed
+     */
+    abstract function index();
 
     function request()
     {
@@ -30,7 +35,7 @@ abstract class AbstractController
     function __call($actionName, $arguments = null)
     {
         if (in_array($actionName, [
-            'actionName', 'setRequest', 'setResponse',  'request', 'response', '__call'
+            'actionName', 'request', 'response', '__call'
         ])) {
             $this->response()->setStatus(Status::CODE_INTERNAL_SERVER_ERROR);
             return;
@@ -42,6 +47,7 @@ abstract class AbstractController
                 $this->$realName();
             }else{
                 $this->response()->setStatus(Status::CODE_NOT_FOUND);
+                return;
             }
         }
     }

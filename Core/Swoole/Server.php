@@ -102,42 +102,42 @@ class Server
     private function serverStart()
     {
         $this->getServer()->on("start", function (\swoole_http_server $server) {
-            echo 'server start';
+            echo 'server start'.PHP_EOL;
         });
     }
 
     private function workerStart()
     {
         $this->getServer()->on("WorkerStart", function (\swoole_server $server, $workerId) {
-            echo 'Worker start';
+            echo 'Worker start'.PHP_EOL;
         });
     }
 
     private function workerStop()
     {
         $this->getServer()->on("WorkerStop", function (\swoole_server $server, $workerId) {
-            echo 'Worker stop';
+            echo 'Worker stop'.PHP_EOL;
         });
     }
 
     private function onTask()
     {
         $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
-            echo 'start task';
+            echo 'start task'.PHP_EOL;
         });
     }
 
     private function onTaskFinish()
     {
         $this->getServer()->on("finish", function (\swoole_http_server $server, $taskId, $taskObj) {
-            echo 'task finish';
+            echo 'task finish'.PHP_EOL;
         });
     }
 
     private function workerError()
     {
         $this->getServer()->on("workerError", function (\swoole_http_server $server, $worker_id, $worker_pid, $exit_code) {
-            echo 'worker Error';
+            echo 'worker Error'.PHP_EOL;
         });
     }
 }
