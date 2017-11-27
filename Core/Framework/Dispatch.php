@@ -42,14 +42,18 @@ class Dispatch
                 $instanceClass = new \ReflectionClass($className);
                 $res = $instanceClass->getMethod($mName);
                 if (!$res->isPublic()) {
-                    throw new \Exception('method is not a public function');
+                    throw new \Exception('method ['.$mName.'] is not a public function', 500);
                 }
                 $result = $instanceClass->newInstance();
-                Register::getInstance()->setPool($className, $result);
+                if($result instanceof AbstractController) {
+                    Register::getInstance()->setPool($className, $result);
+                }else{
+                    throw new \Exception('class ['.$className.'] do not extends Core\Framework\AbstractController', 500);
+                }
+            }else{
+                throw new \Exception('class ['.$className.'] not found', 500);
             }
         }
-        if($result) {
-            $result->__call($mName);
-        }
+        $result->__call($mName);
     }
 }

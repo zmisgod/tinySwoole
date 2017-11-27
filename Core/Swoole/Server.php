@@ -62,8 +62,12 @@ class Server
                 $userRequest = Request::getInstance($swoole_request);
                 //框架响应的类
                 $userResponse = Response::getInstance($swoole_response);
-                //框架路由
-                Dispatch::getInstance()->dispatch($userRequest, $userResponse);
+                try{
+                    //框架路由
+                    Dispatch::getInstance()->dispatch($userRequest, $userResponse);
+                }catch (\Exception $e) {
+                    $userResponse->writeJson($e->getCode(), '', $e->getMessage());
+                }
                 //获取当前请求框架的状态码
                 $status = $userResponse->getStatusCode();
                 //设置swoole的状态码
