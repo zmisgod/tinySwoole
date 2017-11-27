@@ -10,6 +10,5 @@ $loader = AutoLoader::getInstance();
 $loader->addNamespace('Core', 'Core');
 $loader->addNamespace('App', 'App');
 $loader->addNamespace('Config', 'Config');
-$config = Config::getInstance(ROOT.'/Config');
-$serverConfig = $config->getConfig('config.server');
+$serverConfig = Config::getInstance(ROOT.'/Config')->getConfig('config.server');
 Server::getInstance($serverConfig)->startServer();

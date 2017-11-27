@@ -20,7 +20,7 @@ class Server
         $this->server = new \swoole_http_server($this->server_config['host'], $this->server_config['port']);
     }
 
-    public static function getInstance($config)
+    public static function getInstance($config = null)
     {
         if (!self::$instance) {
             self::$instance = new static($config);
@@ -64,7 +64,7 @@ class Server
                 $userResponse = Response::getInstance($swoole_response);
                 try{
                     //框架路由
-                    Dispatch::getInstance()->dispatch($userRequest, $userResponse);
+                    Dispatch::getInstance()->dispatch();
                 }catch (\Exception $e) {
                     $userResponse->writeJson($e->getCode(), '', $e->getMessage());
                 }
@@ -123,7 +123,7 @@ class Server
     private function onTask()
     {
         $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
-            echo 'start task'.PHP_EOL;
+            echo $data;
         });
     }
 

@@ -15,12 +15,12 @@ class Dispatch
         return self::$instance;
     }
 
-    public function dispatch(Request $request,Response $response)
+    public function dispatch()
     {
-        if($response->isEndResponse()){
+        if(Response::getInstance()->isEndResponse()){
             return;
         }
-        $url = $request->parseUrl();
+        $url = Request::getInstance()->parseUrl();
         $request_uri = explode('/', trim($url->getPath(), '/'));
         //controller name
         $cName = $request_uri[0];
@@ -45,6 +45,7 @@ class Dispatch
                     throw new \Exception('method ['.$mName.'] is not a public function', 500);
                 }
                 $result = $instanceClass->newInstance();
+//                $result = new $className();
                 if($result instanceof AbstractController) {
                     Register::getInstance()->setPool($className, $result);
                 }else{
