@@ -42,6 +42,10 @@ server {
 
 静态文件在Public目录下
 
+
+### 性能
+![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v1.png)
+
 ### 关于swoole
 
 ###### <a href="https://wiki.swoole.com/">Swoole文档</a>
