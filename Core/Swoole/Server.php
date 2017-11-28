@@ -231,22 +231,12 @@ class Server
         if(!empty($this->listen_servers)) {
             foreach ($this->listen_servers as $v) {
                 if($v == self::LISTEN_PORT_TCP) {
-                    $this->tcpOnConnect();
                     $this->tcpOnReceive();
-                    $this->tcpOnClose();
                 }else if($v == self::LISTEN_PORT_UDP) {
                     $this->udpOnPacket();
-//                    $this->udpOnReceive();
                 }
             }
         }
-    }
-
-    private function tcpOnConnect()
-    {
-        $this->getTcpServer()->on('Connect', function(\swoole_server $server, $fd){
-            echo 'tcp connect'.PHP_EOL;
-        });
     }
 
     private function tcpOnReceive()
@@ -258,13 +248,6 @@ class Server
         });
     }
 
-    private function tcpOnClose()
-    {
-        $this->getTcpServer()->on('Close', function(\swoole_server $server, $fd){
-            echo 'client close'.PHP_EOL;
-        });
-    }
-
     private function udpOnPacket()
     {
         $this->getUpdServer()->on('Packet', function(\swoole_server $server, $data, $client_info){
@@ -272,6 +255,4 @@ class Server
             $server->sendto($client_info['address'], $client_info['port'], ' this is framework send message');
         });
     }
-
-    private function udpOnReceive(){}
 }

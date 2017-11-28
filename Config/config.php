@@ -29,7 +29,7 @@ return [
                 ]
             ],
             [
-                'open' => false,//是否开启udp
+                'open' => true,//是否开启udp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_UDP,//端口类型
                 'port' => 9521,
                 'socket_type' => SWOOLE_SOCK_UDP,
