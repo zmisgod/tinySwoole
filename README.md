@@ -12,6 +12,10 @@ clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`�
 在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
 
 
+### Swoole Task
+
+详情见`App\Task\Test`这个demo
+
 ### 配置文件
 
 配置文件在Config文件夹中。获取配置文件示例：

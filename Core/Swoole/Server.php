@@ -148,7 +148,7 @@ class Server
         if($task_num) {
             $this->getServer()->on("finish", function (\swoole_http_server $server, $taskId, $taskObj) {
                 if($taskObj instanceof AbstractTask) {
-                    return $taskObj->finishTask($server, $taskId, $taskObj);
+                    $taskObj->finishTask($server, $taskId, $taskObj->getDataForFinishCallBack());
                 }
             });
         }
