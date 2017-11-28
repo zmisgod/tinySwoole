@@ -23,7 +23,7 @@ class Dispatch
         $url = Request::getInstance()->parseUrl();
         $request_uri = explode('/', trim($url->getPath(), '/'));
         //controller name
-        $cName = $request_uri[0];
+        $cName = strtolower($request_uri[0]);
         //method name
         $mName = '';
         if(isset($request_uri[1])) {
@@ -45,7 +45,6 @@ class Dispatch
                     throw new \Exception('method ['.$mName.'] is not a public function', 500);
                 }
                 $result = $instanceClass->newInstance();
-//                $result = new $className();
                 if($result instanceof AbstractController) {
                     Register::getInstance()->setPool($className, $result);
                 }else{

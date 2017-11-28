@@ -12,9 +12,13 @@ clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`�
 在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
 
 
-### Swoole Task
+### Swoole相关内置函数使用
 
-详情见`App\Task\Test`这个demo
+详情见`App\Controller\DemoController`这个类，包括
+~ swoole_task
+~ swoole_timer_tick
+~ swoole_timer_clear
+~ swoole_timer_after
 
 ### 配置文件
 
@@ -27,7 +31,7 @@ clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`�
 提示端口已被使用，请使用`lsof -i:你的端口`，如果有信息，请`kill -9 PID` 
 停止运行直接使用 `ctrl + c`
 
-### Nginx配置
+### Nginx配置域名
 
 ```
 server {
@@ -56,8 +60,11 @@ server {
 
 机器: CPU: i5, RAM: 8G, OS: maxOS Sierra 10.12.6
 
-报告
-![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v1.png)
+###### 报告
+![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v2.png)
+
+###### 历史性能报告截图在`/Public/github_readme_pic`下，可以查看下每次更新性能提高多少，也可以见正我对框架做的努力。
+
 
 ### 关于swoole
 

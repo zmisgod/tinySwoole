@@ -10,7 +10,7 @@ class Register
     static function getInstance()
     {
         if(!isset(self::$instance)) {
-            self::$instance = new Register();
+            self::$instance = new static();
         }
         return self::$instance;
     }
