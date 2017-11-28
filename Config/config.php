@@ -4,14 +4,14 @@ return [
         'host' => '127.0.0.1',
         'port' => 9519,
         'server_type' => \Core\Swoole\Server::SERVER_TYPE_WEB,
-        'socket_type' => SWOOLE_TCP,
+        'socket_type' => SWOOLE_SOCK_TCP,
         "mode" => SWOOLE_PROCESS,//不建议更改此项
         'setting' => [
             'open_http_protocol' => true,
             'task_worker_num' => 1, //异步任务进程
             "task_max_request" => 10,
             'max_request' => 10000,//强烈建议设置此配置项
-            'worker_num' => 8,
+            'worker_num' => 4,
             'log_file' => ROOT . "/Log/Server/swoole.log",
             'pid_file' => ROOT . "/Log/Server/pid.pid",
         ],
@@ -34,10 +34,12 @@ return [
                 'port' => 9521,
                 'socket_type' => SWOOLE_SOCK_UDP,
                 'setting' => [
-                    'open_length_check' => true,
-                    'package_length_type' => 'N',
-                    'package_length_offset' => 0,
-                    'package_max_length' => 800000
+                    'open_eof_split' => true,
+                    'package_eof' => "\r\n",
+//                    'open_length_check' => true,
+//                    'package_length_type' => 'N',
+//                    'package_length_offset' => 0,
+//                    'package_max_length' => 800000
                 ]
             ]
         ]

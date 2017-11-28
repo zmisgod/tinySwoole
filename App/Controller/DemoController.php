@@ -73,7 +73,7 @@ class DemoController extends AbstractController
     {
         $client = new \swoole_client(SWOOLE_SOCK_UDP);
         $client->connect('127.0.0.1', 9521);
-        $client->send('this is demo controller udpClient method');
+        $client->send('this is demo controller udpClient method'."\r\n");
         $res = $client->recv();
         $this->response()->write('client receive :' .$res.PHP_EOL);
     }

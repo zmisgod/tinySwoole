@@ -12,7 +12,7 @@ default config
 |-|-|-|
 |http|9519|true|
 |tcp|9520|true|
-|udp|9521|false|
+|udp|9521|true|
 
 ### 路由 
 
@@ -56,9 +56,10 @@ server {
         if (!-e $request_filename){
             proxy_pass http://127.0.0.1:9519;
         }
+        # 当访问your.server.name的时候没有走9519端口，暂时只能先这样判断（有知道原因的请和我联系，交流交流，谢谢 微博<a href="weibo.com/zmisgod">@zmisgod</a>）
         if ( $request_uri = '/') {
             proxy_pass http://127.0.0.1:9519;
-        } 
+        }
     }
 }
 ```
@@ -70,15 +71,16 @@ server {
 
 机器: CPU: i5, RAM: 8G, OS: maxOS Sierra 10.12.6
 
-###### 报告
-![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v2.png)
+性能报告 <br />
+![image](https://github.com/zmisgod/TinySwoole/blob/master/Public/github_readme_pic/v3.png)
 
-###### 历史性能报告截图在`/Public/github_readme_pic`下，可以查看下每次更新性能提高多少，也可以见正我对框架做的努力。
+<br />
+历史性能报告截图在`/Public/github_readme_pic`下，可以查看下每次更新性能提高多少，也可以见正我对框架做的努力。
 
 
 ### 关于swoole
 
-###### <a href="https://wiki.swoole.com/">Swoole文档</a>
+<a href="https://wiki.swoole.com/">Swoole文档</a> <br />
 swoole默认端口是`9501`，为什么是`9501`呢，答案是：九五至尊`95`+`01`（01就不用解释了吧）。
 
 ### 关于我

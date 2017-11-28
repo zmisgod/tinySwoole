@@ -228,6 +228,7 @@ class Server
                 $this->{$v['type']}->set($v['setting']);
             }
         }
+        var_dump($this->getUpdServer());
         if(!empty($this->listen_servers)) {
             foreach ($this->listen_servers as $v) {
                 if($v == self::LISTEN_PORT_TCP) {
