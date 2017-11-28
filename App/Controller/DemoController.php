@@ -5,12 +5,13 @@ use App\Task\Test;
 use Core\Framework\AbstractController;
 use Core\Swoole\Server;
 use Core\Swoole\Timer;
+use Swoole\Client;
 
 class DemoController extends AbstractController
 {
     public function index()
     {
-        $this->response()->write("2131231 this DemoController can show how to use swoole function in this framework, just see the code!");
+        $this->response()->write("this DemoController can show how to use swoole function in this framework, just see the code!");
     }
 
     /**
@@ -51,5 +52,29 @@ class DemoController extends AbstractController
             echo $i.PHP_EOL;
             $i++;
         }, [1, 2]);
+    }
+
+    /**
+     * tcp client
+     */
+    public function tcpClient()
+    {
+        $client = new \swoole_client(SWOOLE_SOCK_TCP);
+        $client->connect('127.0.0.1', 9520);
+        $client->send('this is demo controller tcpClient method'."\r\n");
+        $res = $client->recv();
+        echo 'client receive :' .$res;
+    }
+
+    /**
+     * upd client
+     */
+    public function udpClient()
+    {
+        $client = new \swoole_client(SWOOLE_SOCK_UDP);
+        $client->connect('127.0.0.1', 9521);
+        $client->send('this is demo controller udpClient method');
+        $res = $client->recv();
+        echo 'client receive :' .$res.PHP_EOL;
     }
 }

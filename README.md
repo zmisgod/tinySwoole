@@ -4,21 +4,31 @@
 
 ## 使用
 
-clone代码后直接在cli中执行php index.php，默认端口绑定在`9519`端口上。
+clone代码后直接在cli中执行php index.php，默认HTTP端口绑定在`9519`端口上。<br />
+如果想要使用多端口监听`tcp`、`udp`，需要在配置文件中将`multi_port`设置为`true`,并在`tcp`或者`udp`的`open`选项中设置为`true`开启。<br />
+default config
+
+|server|port|open|
+|-|-|-|
+|http|9519|true|
+|tcp|9520|true|
+|udp|9521|false|
 
 ### 路由 
 
-###### `http://127.0.0.1:9519/index/benchmark`
+`http://127.0.0.1:9519/index/benchmark`<br />
 在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
 
 
 ### Swoole相关内置函数使用
 
 详情见`App\Controller\DemoController`这个类，包括
-~ swoole_task
-~ swoole_timer_tick
-~ swoole_timer_clear
-~ swoole_timer_after
+- swoole_task
+- swoole_timer_tick
+- swoole_timer_clear
+- swoole_timer_after
+- tcp_client (暂时还不能做什么，仅仅实现了输出信息)
+- udp_client (暂时还不能做什么，仅仅实现了输出信息)
 
 ### 配置文件
 
@@ -54,7 +64,7 @@ server {
 ```
 ### 静态文件
 
-静态文件在Public目录下
+静态文件在Public目录下（暂时需要配合nginx处理静态资源）
 
 ### 性能
 
