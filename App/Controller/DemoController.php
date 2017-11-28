@@ -63,7 +63,7 @@ class DemoController extends AbstractController
         $client->connect('127.0.0.1', 9520);
         $client->send('this is demo controller tcpClient method'."\r\n");
         $res = $client->recv();
-        echo 'client receive :' .$res;
+        $this->response()->write('client receive :' .$res);
     }
 
     /**
@@ -75,6 +75,6 @@ class DemoController extends AbstractController
         $client->connect('127.0.0.1', 9521);
         $client->send('this is demo controller udpClient method');
         $res = $client->recv();
-        echo 'client receive :' .$res.PHP_EOL;
+        $this->response()->write('client receive :' .$res.PHP_EOL);
     }
 }

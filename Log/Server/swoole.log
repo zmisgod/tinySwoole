@@ -1,2 +1,0 @@
-[2017-11-28 18:19:14 $90591.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=0, signal=11
-[2017-11-28 18:19:14 $90591.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11

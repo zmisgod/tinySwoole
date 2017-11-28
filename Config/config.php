@@ -8,7 +8,7 @@ return [
         "mode" => SWOOLE_PROCESS,//不建议更改此项
         'setting' => [
             'open_http_protocol' => true,
-            'task_worker_num' => 2, //异步任务进程
+            'task_worker_num' => 1, //异步任务进程
             "task_max_request" => 10,
             'max_request' => 10000,//强烈建议设置此配置项
             'worker_num' => 8,
@@ -29,7 +29,7 @@ return [
                 ]
             ],
             [
-                'open' => true,//是否开启udp
+                'open' => false,//是否开启udp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_UDP,//端口类型
                 'port' => 9521,
                 'socket_type' => SWOOLE_SOCK_UDP,

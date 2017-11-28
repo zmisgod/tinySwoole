@@ -212,7 +212,7 @@ class Server
     private function workerError()
     {
         $this->getServer()->on("workerError", function (\swoole_http_server $server, $worker_id, $worker_pid, $exit_code) {
-            echo 'worker Error' . PHP_EOL;
+            echo 'worker_id : '.$worker_id.' worker pid :'.$worker_pid. ' exit_code : '.$exit_code.PHP_EOL;
         });
     }
 
@@ -236,7 +236,7 @@ class Server
                     $this->tcpOnClose();
                 }else if($v == self::LISTEN_PORT_UDP) {
                     $this->udpOnPacket();
-                    $this->udpOnReceive();
+//                    $this->udpOnReceive();
                 }
             }
         }
