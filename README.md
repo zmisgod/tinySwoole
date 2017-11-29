@@ -75,7 +75,7 @@ server {
 }
 ```
 当访问your.server.name的默认路由的时候没有走9519端口，有知道原因的请和我联系，交流交流，谢谢。<br />
-微博:<a href="weibo.com/zmisgod">@zmisgod</a>
+微博:<a href="http://weibo.com/zmisgod">@zmisgod</a>
 
 ### 静态文件
 
