@@ -14,11 +14,22 @@ default config
 |tcp|9520|true|
 |udp|9521|true|
 
-### 路由 
+### Web路由 
 
 `http://127.0.0.1:9519/index/benchmark`<br />
 在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
 
+### TCP
+
+如果需要使用`tcp`服务，需要定义一个类，此类需要继承`Core\Framework\AbstractTcpInstance`抽象类,tcp client需要发送三个参数的json encode的字符串
+```
+[
+ 'obj' => 'App\Tcp\YourClassName',
+ 'action' => 'functionName',
+ 'params' => []
+]
+```
+详情请见`App\Controller\DemoController`的`tcpClient`方法
 
 ### Swoole相关内置函数使用
 
@@ -27,7 +38,7 @@ default config
 - swoole_timer_tick
 - swoole_timer_clear
 - swoole_timer_after
-- tcp_client (暂时还不能做什么，仅仅实现了输出信息)
+- tcp_client
 - udp_client (暂时还不能做什么，仅仅实现了输出信息)
 
 ### 配置文件
@@ -56,13 +67,16 @@ server {
         if (!-e $request_filename){
             proxy_pass http://127.0.0.1:9519;
         }
-        # 当访问your.server.name的时候没有走9519端口，暂时只能先这样判断（有知道原因的请和我联系，交流交流，谢谢 微博<a href="weibo.com/zmisgod">@zmisgod</a>）
+        # 当访问your.server.name的时候没有走9519端口，暂时只能先这样判断）
         if ( $request_uri = '/') {
             proxy_pass http://127.0.0.1:9519;
         }
     }
 }
 ```
+当访问your.server.name的默认路由的时候没有走9519端口，有知道原因的请和我联系，交流交流，谢谢。<br />
+微博:<a href="weibo.com/zmisgod">@zmisgod</a>
+
 ### 静态文件
 
 静态文件在Public目录下（暂时需要配合nginx处理静态资源）

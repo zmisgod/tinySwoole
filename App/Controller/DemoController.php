@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Task\Test;
+use App\Tcp\TcpDemo;
 use Core\Framework\AbstractController;
 use Core\Swoole\Server;
 use Core\Swoole\Timer;
@@ -61,9 +62,14 @@ class DemoController extends AbstractController
     {
         $client = new \swoole_client(SWOOLE_SOCK_TCP);
         $client->connect('127.0.0.1', 9520);
-        $client->send('this is demo controller tcpClient method'."\r\n");
-        $res = $client->recv();
-        $this->response()->write('client receive :' .$res);
+        $data = [
+            'obj' => 'App\Tcp\TcpDemo',
+            'action' => 'drink',
+            'params' => ['zmisgod', 'coca']
+        ];
+        $client->send(json_encode($data)."\r\n");
+        $res = json_decode($client->recv(), true);
+        $this->response()->writeJson($res['code'], $res['result'], $res['msg']);
     }
 
     /**
@@ -73,8 +79,13 @@ class DemoController extends AbstractController
     {
         $client = new \swoole_client(SWOOLE_SOCK_UDP);
         $client->connect('127.0.0.1', 9521);
-        $client->send('this is demo controller udpClient method'."\r\n");
-        $res = $client->recv();
-        $this->response()->write('client receive :' .$res.PHP_EOL);
+        $data = [
+            'obj' => 'App\Tcp\TcpDemo',
+            'action' => 'drink',
+            'params' => ['zmisgod', 'coca']
+        ];
+        $client->send(json_encode($data)."\r\n");
+        $res = json_decode($client->recv(), true);
+        $this->response()->writeJson($res['code'], $res['result'], $res['msg']);
     }
 }

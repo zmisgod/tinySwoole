@@ -3,10 +3,13 @@
 namespace Core\Swoole;
 
 use Core\Framework\AbstractTask;
+use Core\Framework\AbstractTcpInstance;
 use Core\Framework\Dispatch;
 use Core\Framework\Request;
 use Core\Framework\Response;
+use Core\Framework\Status;
 use Core\Uti\Tools\Config;
+use Core\Uti\Tools\Tools;
 
 class Server
 {
@@ -228,7 +231,6 @@ class Server
                 $this->{$v['type']}->set($v['setting']);
             }
         }
-        var_dump($this->getUpdServer());
         if(!empty($this->listen_servers)) {
             foreach ($this->listen_servers as $v) {
                 if($v == self::LISTEN_PORT_TCP) {
@@ -243,9 +245,28 @@ class Server
     private function tcpOnReceive()
     {
         $this->getTcpServer()->on('Receive', function(\swoole_server $server, $fd, $from_id, $data){
-            echo 'receive your data :'.json_encode(rtrim($data, "\r\n")).PHP_EOL;
-            $server->send($fd, "this is a framework send data ");
-            $server->close($fd);
+            $receive = json_decode(rtrim($data, "\r\n"), true);
+            if(class_exists($receive['obj'])) {
+                $obj = new $receive['obj']();
+                if($obj instanceof AbstractTcpInstance) {
+                    $reflect = new \ReflectionClass($obj);
+                    $action = $reflect->getMethod($receive['action']);
+                    if($action->isPublic()) {
+                        $result = call_user_func_array([$obj, $receive['action']], $receive['params']);
+                        $response = Tools::getInstance()->SEND_JSON(Status::CODE_OK, $result, Status::getReasonPhrase(Status::CODE_OK));
+                        $server->send($fd, $response);
+                        $server->close($fd);
+                    }else{
+                        $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'class not instance AbstractTcpInstance');
+                        $server->send($fd, $response);
+                        $server->close($fd);
+                    }
+                }
+            }else{
+                $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'class not exists');
+                $server->send($fd, $response);
+                $server->close($fd);
+            }
         });
     }
 
