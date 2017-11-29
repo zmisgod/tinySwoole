@@ -1,6 +1,13 @@
 # TinySwoole
 
-这是一个很简单的基于swoole的http框架，这也是我边看easyswoole框架边写的框架，主要实现了基础的`swoole_http_server`的功能。就是为了让使用者了解如何使用swoole、学习如何与swoole结合框架使用以及与swoole编程与之前的fpm编程的区别。
+这是一个很简单的基于swoole的http框架，这也是我边看easyswoole框架边写的框架，主要实现了基础的`swoole_http_server`的功能以及监听`TCP`、`UDP`端口。
+为了让使用者了解如何使用swoole、学习如何与swoole结合框架使用以及与swoole编程与之前的fpm编程的区别。
+
+框架的结构很简单，核心文件在`Core`文件夹下。
+- Framework 框架的核心文件，包括处理 Http 相关请求类，基础类等等
+- Swoole swoole事件触发后对应的处理
+- IO 处理IO
+- Util 一些常用的工具
 
 ## 使用
 
@@ -59,6 +66,11 @@ server {
     listen       80;
     server_name your.server.name;
     root to/your/path/TinySwoole/Public/;
+    
+    if ( $uri = "/" ) {
+       rewrite ^(.*)$ /index last;
+    }
+    
     location / {
         proxy_http_version 1.1;
         proxy_set_header Connection "keep-alive";
@@ -67,15 +79,9 @@ server {
         if (!-e $request_filename){
             proxy_pass http://127.0.0.1:9519;
         }
-        # 当访问your.server.name的时候没有走9519端口，暂时只能先这样判断）
-        if ( $request_uri = '/') {
-            proxy_pass http://127.0.0.1:9519;
-        }
     }
 }
 ```
-当访问your.server.name的默认路由的时候没有走9519端口，有知道原因的请和我联系，交流交流，谢谢。<br />
-微博:<a href="http://weibo.com/zmisgod">@zmisgod</a>
 
 ### 静态文件
 
