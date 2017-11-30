@@ -4,6 +4,7 @@ namespace Core\Swoole;
 
 use Core\Framework\AbstractTask;
 use Core\Framework\AbstractTcpInstance;
+use Core\Framework\AbstractUdpInstance;
 use Core\Framework\Dispatch;
 use Core\Framework\Request;
 use Core\Framework\Response;
@@ -38,11 +39,11 @@ class Server
         $this->server_config = $config;
         if ($this->server_config['server_type'] == self::SERVER_TYPE_WEB) {
             $this->server = new \swoole_http_server($this->server_config['host'], $this->server_config['port'], $this->server_config['mode']);
-        }elseif($this->server_config['server_type'] == self::SERVER_TYPE_WS){
+        } elseif ($this->server_config['server_type'] == self::SERVER_TYPE_WS) {
             $this->server = new \swoole_websocket_server($this->server_config['host'], $this->server_config['port'], $this->server_config['mode']);
-        }elseif($this->server_config['server_type'] == self::SERVER_TYPE_SERVER){
+        } elseif ($this->server_config['server_type'] == self::SERVER_TYPE_SERVER) {
             $this->server = new \swoole_server($this->server_config['host'], $this->server_config['port'], $this->server_config['mode'], $this->server_config['socket_type']);
-        }else{
+        } else {
             die('please reset your App\Config\config.php server.server_type column');
         }
     }
@@ -93,10 +94,10 @@ class Server
         $this->server->set($this->server_config['setting']);
         $this->serverStart();
         $this->workerStart();
-        if($this->server_config['socket_type'] != self::SERVER_TYPE_SERVER) {
+        if ($this->server_config['socket_type'] != self::SERVER_TYPE_SERVER) {
             $this->onRequest();
         }
-        if($this->server_config['multi_port']) {
+        if ($this->server_config['multi_port']) {
             $this->listenMultiPort();
         }
         $this->onTask();
@@ -180,6 +181,13 @@ class Server
         });
     }
 
+    private function pipeMessage()
+    {
+        $this->getServer()->on('pipeMessage', function (\swoole_server $server, $from_id, $data) {
+
+        });
+    }
+
     private function onTask()
     {
         $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
@@ -215,7 +223,7 @@ class Server
     private function workerError()
     {
         $this->getServer()->on("workerError", function (\swoole_http_server $server, $worker_id, $worker_pid, $exit_code) {
-            echo 'worker_id : '.$worker_id.' worker pid :'.$worker_pid. ' exit_code : '.$exit_code.PHP_EOL;
+            echo 'worker_id : ' . $worker_id . ' worker pid :' . $worker_pid . ' exit_code : ' . $exit_code . PHP_EOL;
         });
     }
 
@@ -225,45 +233,76 @@ class Server
     private function listenMultiPort()
     {
         foreach ($this->server_config['multi_port_settings'] as $v) {
-            if($v['open']) {
-                $this->listen_servers[] = $v['type'];
+            if ($v['open']) {
+                $this->listen_servers[$v['type']] = $v['setting'];
                 $this->{$v['type']} = $this->getServer()->addlistener($this->server_config['host'], $v['port'], $v['socket_type']);
                 $this->{$v['type']}->set($v['setting']);
             }
         }
-        if(!empty($this->listen_servers)) {
-            foreach ($this->listen_servers as $v) {
-                if($v == self::LISTEN_PORT_TCP) {
+        if (!empty($this->listen_servers)) {
+            foreach ($this->listen_servers as $type => $setting) {
+                if ($type == self::LISTEN_PORT_TCP) {
                     $this->tcpOnReceive();
-                }else if($v == self::LISTEN_PORT_UDP) {
+                } else if ($type == self::LISTEN_PORT_UDP) {
                     $this->udpOnPacket();
                 }
             }
         }
     }
 
+    /**
+     * 监听端口使用connect与close会出现swoole异常退出
+     */
+//    private function tcpOnConnect()
+//    {
+//        $this->getTcpServer()->on('connect', function(\swoole_server $server, $fd){
+//            echo 'tcp fd = '.$fd. ' connected';
+//        });
+//    }
+//
+//    private function tcpOnClose()
+//    {
+//        $this->getTcpServer()->on('close', function(\swoole_server $server, $fd){
+//            echo 'tcp fd = '.$fd. ' closed';
+//        });
+//    }
+
     private function tcpOnReceive()
     {
-        $this->getTcpServer()->on('Receive', function(\swoole_server $server, $fd, $from_id, $data){
-            $receive = json_decode(rtrim($data, "\r\n"), true);
-            if(class_exists($receive['obj'])) {
+        $this->getTcpServer()->on('Receive', function (\swoole_server $server, $fd, $from_id, $data) {
+            $receive = json_decode(rtrim($data, $this->listen_servers[self::LISTEN_PORT_TCP]), true);
+            if (class_exists($receive['obj'])) {
                 $obj = new $receive['obj']();
-                if($obj instanceof AbstractTcpInstance) {
-                    $reflect = new \ReflectionClass($obj);
-                    $action = $reflect->getMethod($receive['action']);
-                    if($action->isPublic()) {
-                        $result = call_user_func_array([$obj, $receive['action']], $receive['params']);
-                        $response = Tools::getInstance()->SEND_JSON(Status::CODE_OK, $result, Status::getReasonPhrase(Status::CODE_OK));
+                if ($obj instanceof AbstractTcpInstance) {
+                    try {
+                        $reflect = new \ReflectionClass($obj);
+                        $action = $reflect->getMethod($receive['action']);
+                        if ($action->isPublic()) {
+                            $result = call_user_func_array([$obj, $receive['action']], $receive['params']);
+                            $response = Tools::getInstance()->SEND_JSON(Status::CODE_OK, $result, Status::getReasonPhrase(Status::CODE_OK));
+                            $server->send($fd, $response);
+                            $server->close($fd);
+                        } else {
+                            $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request function is not public function');
+                            $server->send($fd, $response);
+                            $server->close($fd);
+                        }
+                    } catch (\ReflectionException $e) {
+                        $response = Tools::getInstance()->SEND_JSON($e->getCode(), '', $e->getMessage());
                         $server->send($fd, $response);
                         $server->close($fd);
-                    }else{
-                        $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'class not instance AbstractTcpInstance');
+                    } catch (\Exception $e) {
+                        $response = Tools::getInstance()->SEND_JSON($e->getCode(), '', $e->getMessage());
                         $server->send($fd, $response);
                         $server->close($fd);
                     }
+                } else {
+                    $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request class not instance AbstractTcpInstance');
+                    $server->send($fd, $response);
+                    $server->close($fd);
                 }
-            }else{
-                $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'class not exists');
+            } else {
+                $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request class not exists');
                 $server->send($fd, $response);
                 $server->close($fd);
             }
@@ -272,9 +311,37 @@ class Server
 
     private function udpOnPacket()
     {
-        $this->getUpdServer()->on('Packet', function(\swoole_server $server, $data, $client_info){
-            echo 'udp data : '. json_encode($data).PHP_EOL;
-            $server->sendto($client_info['address'], $client_info['port'], ' this is framework send message');
+        $this->getUpdServer()->on('Packet', function (\swoole_server $server, $data, $client_info) {
+            $data = json_decode($data, true);
+            if (class_exists($data['obj'])) {
+                $obj = new $data['obj']();
+                if ($obj instanceof AbstractUdpInstance) {
+                    try {
+                        $reflect = new \ReflectionClass($obj);
+                        $action = $reflect->getMethod($data['action']);
+                        if ($action->isPublic()) {
+                            $result = call_user_func_array([$obj, $data['action']], $data['params']);
+                            $response = Tools::getInstance()->SEND_JSON(Status::CODE_OK, $result, Status::getReasonPhrase(Status::CODE_OK));
+                            $server->sendto($client_info['address'], $client_info['port'], $response);
+                        } else {
+                            $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request function is not public function');
+                            $server->sendto($client_info['address'], $client_info['port'], $response);
+                        }
+                    } catch (\ReflectionException $e) {
+                        $response = Tools::getInstance()->SEND_JSON($e->getCode(), '', $e->getMessage());
+                        $server->sendto($client_info['address'], $client_info['port'], $response);
+                    } catch (\Exception $e) {
+                        $response = Tools::getInstance()->SEND_JSON($e->getCode(), '', $e->getMessage());
+                        $server->sendto($client_info['address'], $client_info['port'], $response);
+                    }
+                } else {
+                    $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request class not instance AbstractUdpInstance');
+                    $server->sendto($client_info['address'], $client_info['port'], $response);
+                }
+            } else {
+                $response = Tools::getInstance()->SEND_JSON(Status::CODE_INTERNAL_SERVER_ERROR, '', 'your request class not exists');
+                $server->sendto($client_info['address'], $client_info['port'], $response);
+            }
         });
     }
 }

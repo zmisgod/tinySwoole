@@ -17,6 +17,8 @@ class DemoController extends AbstractController
 
     /**
      * swoole_task
+     *
+     * http://127.0.0.1:9519/demo/taskTest
      */
     public function taskTest()
     {
@@ -26,6 +28,8 @@ class DemoController extends AbstractController
     /**
      * swoole_timer_tick
      * swoole_timer_clear
+     *
+     * http://127.0.0.1:9519/demo/tickTest
      */
     public function tickTest()
     {
@@ -43,6 +47,8 @@ class DemoController extends AbstractController
 
     /**
      * swoole_timer_after
+     *
+     * http://127.0.0.1:9519/demo/afterTest
      */
     public function afterTest()
     {
@@ -57,6 +63,8 @@ class DemoController extends AbstractController
 
     /**
      * tcp client
+     *
+     * http://127.0.0.1:9519/demo/tcpClient
      */
     public function tcpClient()
     {
@@ -74,15 +82,23 @@ class DemoController extends AbstractController
 
     /**
      * upd client
+     *
+     * http://127.0.0.1:9519/demo/udpClient?name=i%20am%20a%20star
      */
     public function udpClient()
     {
+        $get = $this->request()->parseGet();
+        if(!isset($get['name'])) {
+            $msg = 'i am zmisgod';
+        }else{
+            $msg = $get['name'];
+        }
         $client = new \swoole_client(SWOOLE_SOCK_UDP);
         $client->connect('127.0.0.1', 9521);
         $data = [
-            'obj' => 'App\Tcp\TcpDemo',
-            'action' => 'drink',
-            'params' => ['zmisgod', 'coca']
+            'obj' => 'App\Udp\UdpDemo',
+            'action' => 'youSayWhatIReplayWhat',
+            'params' => [$msg]
         ];
         $client->send(json_encode($data)."\r\n");
         $res = json_decode($client->recv(), true);

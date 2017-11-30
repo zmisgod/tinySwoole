@@ -40,24 +40,23 @@ default config
 
 ### Swoole相关内置函数使用
 
-详情见`App\Controller\DemoController`这个类，包括
+详情见`App\Controller\DemoController`这个类，demo包括下列方法的使用
 - swoole_task
 - swoole_timer_tick
 - swoole_timer_clear
 - swoole_timer_after
 - tcp_client
-- udp_client (暂时还不能做什么，仅仅实现了输出信息)
+- udp_client
 
 ### 配置文件
 
-配置文件在Config文件夹中。获取配置文件示例：
-###### `$serverConfig = Config::getInstance()->getConfig('config.server');`
+配置文件在Config文件夹中。获取配置文件示例：<br />
+`$serverConfig = Config::getInstance()->getConfig('config.server');`
 其中，config为Config下的config.php文件
 
-### Tips
+### 静态文件
 
-提示端口已被使用，请使用`lsof -i:你的端口`，如果有信息，请`kill -9 PID` 
-停止运行直接使用 `ctrl + c`
+静态文件在Public目录下（暂时需要配合nginx处理静态资源）
 
 ### Nginx配置域名
 
@@ -83,10 +82,6 @@ server {
 }
 ```
 
-### 静态文件
-
-静态文件在Public目录下（暂时需要配合nginx处理静态资源）
-
 ### 性能
 
 机器: CPU: i5, RAM: 8G, OS: maxOS Sierra 10.12.6
@@ -97,6 +92,10 @@ server {
 <br />
 历史性能报告截图在`/Public/github_readme_pic`下，可以查看下每次更新性能提高多少，也可以见正我对框架做的努力。
 
+### Tips
+
+提示端口已被使用，请使用`lsof -i:你的端口`，如果有信息，请`kill -9 PID` 
+停止运行直接使用 `ctrl + c`
 
 ### 关于swoole
 
