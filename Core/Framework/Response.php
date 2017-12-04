@@ -82,24 +82,17 @@ class Response extends ResponseHeader
     /**
      * 写数据到内存中
      *
-     * @param $obj
+     * @param $view
+     * @param $params
      * @return bool
      */
-    function write($obj)
+    function view($view, $params)
     {
         if(!$this->isEndResponse()) {
-            if(is_object($obj)) {
-                if(method_exists($obj, '__toSting')) {
-                    $obj = $obj->__toString();
-                }else if(method_exists($obj, "jsonSerialize")) {
-                    $obj = json_encode($obj, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-                }else{
-                    $obj = var_export($obj, true);
-                }
-            }else if(is_array($obj)){
-                $obj = json_encode($obj, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-            }
-            $this->getBody()->write($obj);
+            ob_start();
+            $data = ob_get_contents();
+            ob_end_clean();
+            $this->getBody()->write($data);
             return true;
         }else{
             trigger_error('response has end');

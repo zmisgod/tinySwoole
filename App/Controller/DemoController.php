@@ -12,7 +12,7 @@ class DemoController extends AbstractController
 {
     public function index()
     {
-        $this->response()->write("this DemoController can show how to use swoole function in this framework, just see the code!");
+        $this->response()->writeJson(200, "this DemoController can show how to use swoole function in this framework, just see the code!");
     }
 
     /**

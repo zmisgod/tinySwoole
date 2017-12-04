@@ -1,0 +1,15 @@
+{
+    "name": "zmisgod/tiny-swoole",
+    "description": "this is tiny-swoole",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zmisgod",
+            "email": "starzmisgod@gmail.com"
+        }
+    ],
+    "require": {
+        "php-ai/php-ml": "^0.5.0"
+    }
+}

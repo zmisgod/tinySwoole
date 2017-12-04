@@ -1,5 +1,6 @@
 <?php
 define('ROOT', __DIR__);
+define('PUBLIC_DIR', ROOT.'/Public');
 require_once ROOT.'/Core/Uti/Tools/AutoLoader.php';
 use \Core\Uti\Tools\AutoLoader;
 use \Core\Swoole\Server;

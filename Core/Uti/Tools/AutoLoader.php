@@ -23,6 +23,7 @@ class AutoLoader
     function register()
     {
         spl_autoload_register([$this, 'loadClass']);
+        require_once ROOT.'/vendor/autoload.php';
     }
 
     /**

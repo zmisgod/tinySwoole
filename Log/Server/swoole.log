@@ -1,0 +1,38 @@
+[2017-12-04 09:11:05 *31936.2]	ERROR	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2017-12-04 09:11:25 *31955.2]	ERROR	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2017-12-04 09:41:08 $32215.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 09:41:08 #32214.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 09:41:08 *32219.2]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 09:41:08 *32220.3]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 09:41:08 *32218.1]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 09:41:08 *32217.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 12:35:43 *36389.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to Phpml\Math\Distance\Euclidean::distance() must be of the type array, string given, called in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeighbors.php on line 68 and defined in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Math/Distance/Euclidean.php:15
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeigh
+[2017-12-04 12:35:43 $36385.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 12:38:03 *36467.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to Phpml\Math\Distance\Euclidean::distance() must be of the type array, string given, called in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeighbors.php on line 68 and defined in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Math/Distance/Euclidean.php:15
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeigh
+[2017-12-04 12:38:03 $36463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 12:48:28 *36548.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to Phpml\Math\Distance\Euclidean::distance() must be of the type array, string given, called in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeighbors.php on line 68 and defined in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Math/Distance/Euclidean.php:15
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Classification/KNearestNeigh
+[2017-12-04 12:48:28 $36544.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 12:57:42 *36687.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: array_unshift() expects parameter 1 to be array, string given in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php:86
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php(86): array_unshift('02', 1)
+#1 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php(69): Phpml\Regression\LeastSquares->getSamplesMatrix(
+[2017-12-04 12:57:42 $36683.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 13:53:47 *38603.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: array_unshift() expects parameter 1 to be array, string given in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php:86
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php(86): array_unshift('22', 1)
+#1 /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Regression/LeastSquares.php(69): Phpml\Regression\LeastSquares->getSamplesMatrix(
+[2017-12-04 13:53:47 $38599.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 13:54:55 *38650.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 69632 bytes) in /Users/tingping/myweb/TinySwoole/vendor/php-ai/php-ml/src/Phpml/Math/LinearAlgebra/LUDecomposition.php on line 100.
+[2017-12-04 13:54:55 $38646.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2017-12-04 14:38:11 #38944.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 14:38:11 $38945.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 14:38:11 *38949.2]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 14:38:11 *38950.3]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 14:38:11 *38948.1]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-12-04 14:38:11 *38947.0]	WARNING	swSignal_callback: signal[1] callback is null.
