@@ -9,9 +9,17 @@
 - IO 处理IO
 - Util 一些常用的工具
 
+## 启动
+
+`php index.php`
+ (默认HTTP端口绑定在`9519`端口上,你也可以到配置文件中修改)
+
+## 关闭
+
+`php kill.php`
+
 ## 使用
 
-clone代码后直接在cli中执行php index.php，默认HTTP端口绑定在`9519`端口上。<br />
 如果想要使用多端口监听`tcp`、`udp`，需要在配置文件中将`multi_port`设置为`true`,并在`tcp`或者`udp`的`open`选项中设置为`true`开启。<br />
 default config
 
@@ -23,8 +31,10 @@ default config
 
 ### Web路由 
 
-`http://127.0.0.1:9519/index/benchmark`<br />
-在`App\Controller\IndexController`中的`benchmark()`，并且需要此公开的方法（public function）并且class需要继承`Core\Framework\AbstractController`
+|路由|对应文件|方法名|
+|http://127.0.0.1:9519/index/benchmark|App\Controller\IndexController|benchmark|
+
+其中，并且类文件的方法需要为公开的方法（public function）并且类需要继承`Core\Framework\AbstractController`
 
 ### TCP
 

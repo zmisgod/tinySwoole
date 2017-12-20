@@ -38,11 +38,22 @@ class IndexController extends AbstractController
                 $i[$index][] = $value;
             }
         }
-        foreach ($i as $k => $v) {
-            $classifier->train([$date], $v);
-            $data[$k] = $classifier->predict(["2017141"]);
+        $dateArr = [];
+        foreach ($date as $v) {
+            $dateArr[] = [$v];
         }
-        $this->response()->writeJson(200, $data);
+//        $this->response()->writeJson(200, $dateArr);
+        foreach ($i as $k => $v) {
+            foreach ($v as $re) {
+                $reArr[] = [$re];
+            }
+            $this->response()->writeJson(200, $date);
+//            $classifier->train($reArr, $date);
+//            $datas = $classifier->predict(["2"]);
+//            $this->response()->writeJson(200, $datas);
+//            $data[$k] = $classifier->predict(["2017141"]);
+        }
+//        $this->response()->writeJson(200, $data);
 //        $samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];
 //        $labels = ['a', 'a', 'a', 'b', 'b', 'b'];
 //

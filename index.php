@@ -16,4 +16,10 @@ $loader->addNamespace('Config', 'Config');
 Register::getInstance();
 Tools::getInstance();
 $serverConfig = Config::getInstance(ROOT.'/Config')->getConfig('config.server');
+if(function_exists('apc_clear_cache')) {
+    apc_clear_cache();
+}
+if(function_exists('opcache_reset')) {
+    opcache_reset();
+}
 Server::getInstance($serverConfig)->startServer();
