@@ -32,7 +32,8 @@ default config
 ### Web路由 
 
 |路由|对应文件|方法名|
-|http://127.0.0.1:9519/index/benchmark|App\Controller\IndexController|benchmark|
+|-|-|-|
+|`http://127.0.0.1:9519/index/benchmark`|`App\Controller\IndexController.php`|`benchmark()`|
 
 其中，并且类文件的方法需要为公开的方法（public function）并且类需要继承`Core\Framework\AbstractController`
 
@@ -61,7 +62,7 @@ default config
 ### 配置文件
 
 配置文件在Config文件夹中。获取配置文件示例：<br />
-`$serverConfig = Config::getInstance()->getConfig('config.server');`
+`$serverConfig = Config::getInstance()->getConfig('config.server');`<br />
 其中，config为Config下的config.php文件
 
 ### 静态文件
@@ -102,11 +103,6 @@ server {
 <br />
 历史性能报告截图在`/Public/github_readme_pic`下，可以查看下每次更新性能提高多少，也可以见正我对框架做的努力。
 
-### Tips
-
-提示端口已被使用，请使用`lsof -i:你的端口`，如果有信息，请`kill -9 PID` 
-停止运行直接使用 `ctrl + c`
-
 ### 关于swoole
 
 <a href="https://wiki.swoole.com/">Swoole文档</a> <br />
@@ -114,4 +110,5 @@ swoole默认端口是`9501`，为什么是`9501`呢，答案是：九五至尊`9
 
 ### 关于我
 
-<a href="https://zmis.me/">zmis.me新博客</a>
+<a href="https://zmis.me/">zmis.me新博客</a><br />
+<a href="https://weibo.com/zmisgod">@zmisgod</a>
