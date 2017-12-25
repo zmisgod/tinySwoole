@@ -16,6 +16,11 @@ class IndexController extends AbstractController
         $this->response()->writeJson(200,"this is IndexController index method (default method)");
     }
 
+    public function test()
+    {
+        $this->response()->writeJson(200, 'hello world', 'ok');
+    }
+
     public function ml()
     {
         $data = file_get_contents(PUBLIC_DIR.'/lottrery_result.txt');

@@ -42,7 +42,7 @@ class Config extends \DirectoryIterator
         $value = explode('.', $key);
         $config = $this->config;
         foreach ($value as $v) {
-            if(isset($config[$v])) {
+            if(isset($config[$v]) && $config[$v]) {
                 $config = $config[$v];
             }else{
                 throw new \Exception("do not have this config => ".$key);

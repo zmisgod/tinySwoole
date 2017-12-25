@@ -1,6 +1,7 @@
 <?php
 namespace Core\Framework;
 
+use Core\Uti\Tools\Di;
 use Core\Uti\Tools\Register;
 
 class Dispatch
@@ -36,7 +37,7 @@ class Dispatch
             $mName = 'index';
         }
         $className = 'App\Controller\\'.ucfirst($cName).'Controller';
-        $result = Register::getInstance()->getPool($className);
+        $result = Di::getInstance()->get($className);
         if(!$result) {
             if(file_exists(ROOT.'/'.str_replace('\\', '/', rtrim($className)).'.php')) {
                 $instanceClass = new \ReflectionClass($className);
@@ -46,7 +47,7 @@ class Dispatch
                 }
                 $result = $instanceClass->newInstance();
                 if($result instanceof AbstractController) {
-                    Register::getInstance()->setPool($className, $result);
+                    Di::getInstance()->set($className, $result);
                 }else{
                     throw new \Exception('class ['.$className.'] do not extends Core\Framework\AbstractController', 500);
                 }

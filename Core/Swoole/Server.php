@@ -34,6 +34,8 @@ class Server
 
     public $server_config;
 
+    private $is_start = false;
+
     function __construct($config)
     {
         $this->server_config = $config;
@@ -50,7 +52,7 @@ class Server
 
     public static function getInstance($config = null)
     {
-        if (!self::$instance) {
+        if (!isset(self::$instance)) {
             self::$instance = new static($config);
         }
         return self::$instance;
@@ -104,8 +106,15 @@ class Server
         $this->onTaskFinish();
         $this->workerStop();
         $this->workerError();
+        $this->is_start = true;
         //server start
         $this->getServer()->start();
+        return $this;
+    }
+
+    function is_start()
+    {
+        return $this->is_start;
     }
 
     /**
@@ -163,21 +172,21 @@ class Server
     private function serverStart()
     {
         $this->getServer()->on("start", function (\swoole_http_server $server) {
-            echo 'server start' . PHP_EOL;
+
         });
     }
 
     private function workerStart()
     {
         $this->getServer()->on("WorkerStart", function (\swoole_server $server, $workerId) {
-            echo 'Worker start' . PHP_EOL;
+
         });
     }
 
     private function workerStop()
     {
         $this->getServer()->on("WorkerStop", function (\swoole_server $server, $workerId) {
-            echo 'Worker stop' . PHP_EOL;
+
         });
     }
 
@@ -232,11 +241,11 @@ class Server
      */
     private function listenMultiPort()
     {
-        foreach ($this->server_config['multi_port_settings'] as $v) {
+        foreach ($this->server_config['multi_port_settings'] as $server_type => $v) {
             if ($v['open']) {
-                $this->listen_servers[$v['type']] = $v['setting'];
-                $this->{$v['type']} = $this->getServer()->addlistener($this->server_config['host'], $v['port'], $v['socket_type']);
-                $this->{$v['type']}->set($v['setting']);
+                $this->listen_servers[$server_type.'_server'] = $v['setting'];
+                $this->{$server_type.'_server'} = $this->getServer()->addlistener($this->server_config['host'], $v['port'], $v['socket_type']);
+                $this->{$server_type.'_server'}->set($v['setting']);
             }
         }
         if (!empty($this->listen_servers)) {

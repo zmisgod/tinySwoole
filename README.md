@@ -9,14 +9,13 @@
 - IO 处理IO
 - Util 一些常用的工具
 
-## 启动
+## 相关命令
 
-`php index.php`
- (默认HTTP端口绑定在`9519`端口上,你也可以到配置文件中修改)
+`php index.php start` 启动
+ 
+`php index.php stop` 关闭
 
-## 关闭
-
-`php kill.php`
+`php index.php --help` 显示帮助命令
 
 ## 使用
 

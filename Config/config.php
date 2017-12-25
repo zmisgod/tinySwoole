@@ -7,6 +7,7 @@ return [
         'socket_type' => SWOOLE_SOCK_TCP,
         "mode" => SWOOLE_PROCESS,//不建议更改此项
         'setting' => [
+            'daemonize' => true,
             'open_http_protocol' => true,
             'task_worker_num' => 1, //异步任务进程
             "task_max_request" => 10,
@@ -18,7 +19,7 @@ return [
         //是否开启多端口监听
         'multi_port' => true,
         'multi_port_settings' => [
-            [
+            'tcp' => [
                 'open' => true,//是否开启tcp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_TCP, //端口类型
                 'port' => 9520,
@@ -28,7 +29,7 @@ return [
                     'package_eof' => "\r\n",
                 ]
             ],
-            [
+            'udp' => [
                 'open' => true,//是否开启udp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_UDP,//端口类型
                 'port' => 9521,
@@ -36,10 +37,6 @@ return [
                 'setting' => [
                     'open_eof_split' => true,
                     'package_eof' => "\r\n",
-//                    'open_length_check' => true,
-//                    'package_length_type' => 'N',
-//                    'package_length_offset' => 0,
-//                    'package_max_length' => 800000
                 ]
             ]
         ]
