@@ -1,15 +1,15 @@
 <?php
-require_once __DIR__.'/Core/FrameEntry.php';
-$server = \Core\FrameEntry::getInstance()->initialization();
-$php_version = \Core\Uti\Tools\Di::getInstance()->get(\Core\Uti\Tools\SysConstant::REQUIRE_PHP_VERSION);
-$swoole_version = \Core\Uti\Tools\Di::getInstance()->get(\Core\Uti\Tools\SysConstant::REQUIRE_SWOOLE_VERSION);
+require_once __DIR__ . '/Core/FrameEntry.php';
+$server            = \Core\FrameEntry::getInstance()->initialization();
+$php_version       = \Core\Uti\Tools\Di::getInstance()->get(\Core\Uti\Tools\SysConstant::REQUIRE_PHP_VERSION);
+$swoole_version    = \Core\Uti\Tools\Di::getInstance()->get(\Core\Uti\Tools\SysConstant::REQUIRE_SWOOLE_VERSION);
 $framework_version = \Core\Uti\Tools\Di::getInstance()->get(\Core\Uti\Tools\SysConstant::FRAMEWORK_VERSION);
 if(phpversion() < $php_version) {
-    exit("only support php version >= ".$php_version);
+    exit("only support php version >= " . $php_version);
 }
 
 if(!extension_loaded('swoole') || swoole_version() <= $swoole_version) {
-    exit("you need install swoole and swoole version >= ".$swoole_version);
+    exit("you need install swoole and swoole version >= " . $swoole_version);
 }
 
 if(function_exists('apc_clear_cache')) {
@@ -25,25 +25,10 @@ function command($server)
 {
     global $argv;
     $command = isset($argv[1]) && $argv[1] ? strtolower($argv[1]) : 'start';
-    switch($command) {
-        case 'start':
-            $command($server);
-            break;
-        case 'stop':
-            $command($server);
-            break;
-        case 'reload':
-            $command($server);
-            break;
-        case '--help':
-            help($server);
-            break;
-        case 'status':
-            $command($server);
-            break;
-        default:
-            start($server);
-            break;
+    if(in_array($command, ['start', 'stop', 'reload', 'status'])) {
+        $command($server);
+    }else{
+        help($server);
     }
 }
 
@@ -55,32 +40,32 @@ function command($server)
 function start($server)
 {
     $http = true;
-    $udp = $tcp = false;
-    if(\Core\Swoole\ConfigStatus::getInstance()->tcpOn()){
+    $udp  = $tcp = false;
+    if(\Core\Swoole\ConfigStatus::getInstance()->tcpOn()) {
         $tcp = true;
     }
-    if(\Core\Swoole\ConfigStatus::getInstance()->udpOn()){
+    if(\Core\Swoole\ConfigStatus::getInstance()->udpOn()) {
         $udp = true;
     }
     if($http) {
         $http = success_msg('open');
-    }else{
+    } else {
         $http = error_msg('close');
     }
     if($tcp) {
         $tcp = success_msg('open');
-    }else{
+    } else {
         $tcp = error_msg('close');
     }
     if($udp) {
         $udp = success_msg('open');
-    }else{
+    } else {
         $udp = error_msg('close');
     }
     $http_port = \Core\Swoole\ConfigStatus::getInstance()->httpPort();
-    $tcp_port = \Core\Swoole\ConfigStatus::getInstance()->tcpPort();
-    $udp_port = \Core\Swoole\ConfigStatus::getInstance()->udpPort();
-    try{
+    $tcp_port  = \Core\Swoole\ConfigStatus::getInstance()->tcpPort();
+    $udp_port  = \Core\Swoole\ConfigStatus::getInstance()->udpPort();
+    try {
         $res = <<<EOF
 \033[40;32m            TinySwoole starting Successful!         \033[0m
 ----------------------------------------------------
@@ -93,7 +78,7 @@ SERVER TYPE  |  SERVER PORT |   STATUS    |
 EOF;
         echo $res;
         $server->startServer();
-    }catch (\Exception $e) {
+    } catch(\Exception $e) {
         echo "\e[40;31merror: {$e->getMessage()}\e[0m";
     }
 }
@@ -105,35 +90,39 @@ EOF;
  */
 function stop($server)
 {
-    try{
-        $res = <<<EOF
-SERVER IS STOP
+    $res = <<<EOF
+SERVER IS STOPPING\n
 EOF;
-        echo $res;
-        $server->stopServer();
-    }catch (\Exception $e) {
-        echo error_msg($e->getMessage());
-    }
+    echo $res;
+    $res = $server->stopServer();
+    checkResult($res);
 }
 
+/**
+ * stop framework
+ *
+ * @param \Core\FrameEntry $server
+ */
 function status($server)
 {
     $res = <<<EOF
-server status
+SERVER STATUS:\n
 EOF;
     echo $res;
+    $res = $server->getStatus();
+    checkResult($res,false);
 }
 
 function help($server)
 {
     $res = <<<EOF
-           \033[40;32m TinySwoole Command List \033[0m
+           \033[49;32m TinySwoole Command List \033[0m
 ----------------------------------------------------
-     need help: \033[40;36m php index.php --help \033[0m
-  start server: \033[40;36m php index.php start \033[0m
-   stop server: \033[40;36m php index.php stop \033[0m
- reload server: \033[40;36m php index.php reload \033[0m
- server status: \033[40;36m php index.php status \033[0m
+  \033[49;36m php index.php start \033[0m: start server
+   \033[49;36m               stop \033[0m: stop server
+ \033[49;36m               reload \033[0m: reload server
+ \033[49;36m               status \033[0m: server status
+ \033[49;36m               --help \033[0m: need help
 ----------------------------------------------------
 
 EOF;
@@ -143,11 +132,11 @@ EOF;
 function reload(\Core\FrameEntry $server)
 {
     $res = <<<EOF
-SERVER IS RELOADING
-
+SERVER IS RELOADING\n
 EOF;
     echo $res;
-    $server->reloadServer();
+    $res = $server->reloadServer();
+    checkResult($res);
 }
 
 function error_msg($msg)
@@ -158,4 +147,17 @@ function error_msg($msg)
 function success_msg($msg)
 {
     return "\e[40;32m$msg\e[0m";
+}
+
+function checkResult($res, $show_color = true)
+{
+    if($res['code'] == 200) {
+        if($show_color) {
+            echo success_msg($res['msg']) . PHP_EOL;
+        }else{
+            echo $res['msg'].PHP_EOL;
+        }
+    } else {
+        echo error_msg($res['msg']) . PHP_EOL;
+    }
 }

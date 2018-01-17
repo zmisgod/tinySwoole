@@ -1,6 +1,7 @@
 <?php
 namespace Core\Framework;
 
+use Core\Framework\Request\GetRequest;
 use Core\IO\Stream;
 
 class Request extends BaseRequest
@@ -16,6 +17,7 @@ class Request extends BaseRequest
     private $body;
     private $uri;
     private $files;
+    public $input;
     private $protocolVersion;
 
     static function getInstance(\swoole_http_request $swoole_request = null)
@@ -50,6 +52,8 @@ class Request extends BaseRequest
         $this->get = $this->parseGet();
 
         $this->post = $this->parsePost();
+
+        $this->input = new GetRequest($this->get, $this->post, $this->cookie);
 
         parent::__construct($this->header, $this->body, $this->protocolVersion);
     }
@@ -108,11 +112,11 @@ class Request extends BaseRequest
     /**
      * 从swoole获取get信息
      *
-     * @return array
+     * @return array|GetRequest
      */
     public function parseGet()
     {
-        return isset($this->swoole_http_request->get) ? $this->swoole_http_request->get : [];
+        return isset($this->swoole_http_request->get) ? $this->swoole_http_request->get: [];
     }
 
     /**

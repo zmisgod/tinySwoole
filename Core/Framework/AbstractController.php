@@ -1,10 +1,14 @@
 <?php
 namespace Core\Framework;
 
+use Core\Uti\DB\Mysqli;
+use Core\Uti\Tools\Config;
+
 abstract class AbstractController
 {
     protected $actionName = null;
     protected $callArgs = null;
+    protected $mysqli;
 
     function actionName($actionName = null)
     {
@@ -30,6 +34,11 @@ abstract class AbstractController
     function response()
     {
         return Response::getInstance();
+    }
+
+    function mysqli()
+    {
+        return Mysqli::getInstance(Config::getInstance()->getConfig('config.mysqli'));
     }
 
     function __call($actionName, $arguments = null)

@@ -2,17 +2,66 @@
 namespace App\Controller;
 
 use App\Task\Test;
-use App\Tcp\TcpDemo;
 use Core\Framework\AbstractController;
 use Core\Swoole\Server;
 use Core\Swoole\Timer;
-use Swoole\Client;
 
 class DemoController extends AbstractController
 {
     public function index()
     {
-        $this->response()->writeJson(200, "this DemoController can show how to use swoole function in this framework, just see the code!");
+        $this->response()->writeJson(200, "2this DemoController can show how to use swoole function in this framework, just see the code!");
+    }
+
+    /**
+     * 执行sql
+     */
+    public function doMysql()
+    {
+        $res = $this->mysqli()->query('show tables')->fetchall();
+        $this->response()->writeJson(200, $res, 'ok');
+    }
+
+    /**
+     * 调试sql
+     */
+    public function debugMysql()
+    {
+        $debug = $this->mysqli()->setDebug(true)->query('show tables')->printDebug();
+        $this->response()->writeJson(200, $debug, 'ok');
+    }
+
+    /**
+     * get传参
+     *
+     * 支持
+     * getParam('name', 'this is default value', 'trim') // trim($_GET['name'])
+     * getParams(['*']) //get all params
+     */
+    public function getMethod()
+    {
+        $data = $this->request()->input->get->getParams(['*']);
+        $this->response()->writeJson(200, $data, 'ok');
+    }
+
+    /**
+     * post传参
+     *
+     * content/type = form-data or x-www-form-urlencoded
+     */
+    public function postMethod()
+    {
+        $data = $this->request()->input->post->getParams(['get']);
+        $this->response()->writeJson(200, $data, 'ok');
+    }
+
+    /**
+     * post传递过来的content/type = application/json
+     */
+    public function postJson()
+    {
+        $data = $this->request()->input->post->setContentType('application/json')->getParams(['*']);
+        $this->response()->writeJson(200, $data, 'ok');
     }
 
     /**

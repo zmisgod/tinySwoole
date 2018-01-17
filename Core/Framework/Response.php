@@ -80,27 +80,6 @@ class Response extends ResponseHeader
     }
 
     /**
-     * 写数据到内存中
-     *
-     * @param $view
-     * @param $params
-     * @return bool
-     */
-    function view($view, $params)
-    {
-        if(!$this->isEndResponse()) {
-            ob_start();
-            $data = ob_get_contents();
-            ob_end_clean();
-            $this->getBody()->write($data);
-            return true;
-        }else{
-            trigger_error('response has end');
-            return false;
-        }
-    }
-
-    /**
      * 写入json到内存中
      *
      * @param int $statusCode

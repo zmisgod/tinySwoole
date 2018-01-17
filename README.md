@@ -1,19 +1,23 @@
 # TinySwoole
 
-这是一个很简单的基于swoole的http框架，这也是我边看easyswoole框架边写的框架，主要实现了基础的`swoole_http_server`的功能以及监听`TCP`、`UDP`端口。
+这是一个很简单的基于swoole的http框架，主要实现了基础的`swoole_http_server`的功能以及监听`TCP`、`UDP`端口。
 为了让使用者了解如何使用swoole、学习如何与swoole结合框架使用以及与swoole编程与之前的fpm编程的区别。
 
 框架的结构很简单，核心文件在`Core`文件夹下。
 - Framework 框架的核心文件，包括处理 Http 相关请求类，基础类等等
 - Swoole swoole事件触发后对应的处理
 - IO 处理IO
-- Util 一些常用的工具
+- Util 一些常用的工具 包括: mysql
 
 ## 相关命令
 
 `php index.php start` 启动
  
 `php index.php stop` 关闭
+
+`php index.php reload` 重启
+
+`php index.php status` 查看服务器状态
 
 `php index.php --help` 显示帮助命令
 
@@ -48,6 +52,18 @@ default config
 ```
 详情请见`App\Controller\DemoController`的`tcpClient`方法
 
+### Mysql
+
+内置mysqli,并实现相应的断线重连。使用方法：
+```
+use Core\Uti\DB\Mysqli;
+
+Mysqli::getInstance()->query('show tables')->fetchall();
+
+# debug
+Mysqli::getInstance()->setDebug(true)->query('show tables')->printDebug();
+```
+
 ### Swoole相关内置函数使用
 
 详情见`App\Controller\DemoController`这个类，demo包括下列方法的使用
@@ -57,6 +73,8 @@ default config
 - swoole_timer_after
 - tcp_client
 - udp_client
+- mysqli
+- get/post参数接收
 
 ### 配置文件
 

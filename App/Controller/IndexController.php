@@ -16,6 +16,12 @@ class IndexController extends AbstractController
         $this->response()->writeJson(200,"this is IndexController index method (default method)");
     }
 
+    public function status()
+    {
+        $status = Server::getInstance()->getServer()->stats();
+        $this->response()->writeJson(200, $status, 'ok');
+    }
+
     public function test()
     {
         $this->response()->writeJson(200, 'hello world', 'ok');

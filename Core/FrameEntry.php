@@ -6,7 +6,6 @@ use \Core\Swoole\Server;
 use \Core\Uti\Tools\Config;
 use Core\Uti\Tools\Constant;
 use Core\Uti\Tools\Di;
-use \Core\Uti\Tools\Register;
 use Core\Uti\Tools\SysConstant;
 use \Core\Uti\Tools\Tools;
 class FrameEntry
@@ -44,9 +43,6 @@ class FrameEntry
 
     function loadComponents()
     {
-        //class pool
-        Register::getInstance();
-
         //config
         Config::getInstance(ROOT.'/Config');
 
@@ -95,11 +91,45 @@ class FrameEntry
     function startServer()
     {
         $serverConfig = $this->getServerConfig();
-        Server::getInstance($serverConfig)->startServer();
+        try{
+            Server::getInstance($serverConfig)->startServer();
+        }catch(\Exception $e) {
+            return ['code' => 400, 'msg' => $e->getMessage()];
+        }
     }
 
     function reloadServer()
     {
-        return Server::getInstance()->getServer()->reload();
+        $pid = file_get_contents(ROOT.'/Log/Server/pid.pid');
+        if(!empty($pid)) {
+            try{
+                if(\swoole_process::kill($pid, SIGUSR1)){
+                    return ['code' => 200, 'msg' => 'successful'];
+                }else{
+                    return ['code' => 400, 'msg' => error_get_last()];
+                }
+            }catch (\Exception $e) {
+                return ['code' => 400, 'msg' => $e->getMessage()];
+            }
+        }else{
+            return ['code' => 400, 'msg' => 'are you start this framework?'];
+        }
+    }
+
+    function getStatus()
+    {
+        $host = ConfigStatus::getInstance()->host();
+        $port = ConfigStatus::getInstance()->httpPort();
+        $cmd = "curl -s ".$host.':'.$port.'/index/status';
+        exec($cmd, $data);
+        if(empty($data) || !isset($data[0])) {
+            return ['code' => 400, 'msg' => 'are you start this framework?'];
+        }
+        $res = json_decode($data[0], true);
+        $msg = '';
+        foreach($res['result'] as $k => $v) {
+            $msg .= $k.' = '.$v.PHP_EOL;
+        }
+        return ['code' => 200, 'msg' => $msg];
     }
 }

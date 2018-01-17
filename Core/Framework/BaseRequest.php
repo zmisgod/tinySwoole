@@ -2,6 +2,7 @@
 namespace Core\Framework;
 
 
+use Core\Framework\Request\GetRequest;
 use Core\IO\Stream;
 
 class BaseRequest

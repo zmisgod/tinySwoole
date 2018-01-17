@@ -1,5 +1,13 @@
 <?php
 return [
+    'mysqli' => [
+        'host' => '127.0.0.1',
+        'user' => 'root',
+        'password' => '111111',
+        'port' => 3306,
+        'charset' => 'utf8',
+        'database' => 'mytest'
+    ],
     'server' => [
         'host' => '127.0.0.1',
         'port' => 9519,
