@@ -1,9 +1,11 @@
 <?php
 namespace App\Controller;
 
-use Core\Framework\AbstractController;
+use App\Components\Wechat\WechatAbstract;
+use Core\Uti\Tools\Config;
+use EasyWeChat\Factory;
 
-class WechatController extends AbstractController
+class WechatController extends WechatAbstract
 {
     public function index()
     {
@@ -12,7 +14,17 @@ class WechatController extends AbstractController
 
     public function server()
     {
-        $data = $this->request()->input->get->getParam('get');
-        $this->response()->writeJson(200, $data, 'ok');
+        $app = Factory::officialAccount(Config::getInstance()->getConfig('config.wechat'));
+        $server = $app->server;
+        $user = $app->user;
+
+        $server->push(function($message) use ($user) {
+            $fromUser = $user->get($message['FromUserName']);
+
+            return "{$fromUser->nickname} 您好！欢迎关注 zmisgod!";
+        });
+
+        $server->serve()->send();
+        $this->destroy();
     }
 }

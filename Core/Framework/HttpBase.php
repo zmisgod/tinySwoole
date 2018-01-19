@@ -5,7 +5,7 @@ namespace Core\Framework;
 use Core\Framework\Request\GetRequest;
 use Core\IO\Stream;
 
-class BaseRequest
+class HttpBase
 {
     private $protocolVersion = '1.1';
     private $headers = [];

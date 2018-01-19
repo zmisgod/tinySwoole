@@ -1,11 +1,15 @@
 <?php
 namespace Core\Framework;
 
-class ResponseHeader extends BaseRequest
+use Core\Framework\Request\Cookie;
+
+class ResponseMethod extends HttpBase
 {
     private $statusCode = 200;
 
     private $statusMsg = 'OK';
+
+    private $cookies = [];
 
     function getStatusCode()
     {
@@ -30,5 +34,18 @@ class ResponseHeader extends BaseRequest
             }
             return $this;
         }
+    }
+
+    /**
+     * @return array Cookie
+     */
+    function getCookies()
+    {
+        return $this->cookies;
+    }
+
+    function setResponseCookie(Cookie $cookie)
+    {
+        $this->cookies[$cookie->getName()] = $cookie;
     }
 }

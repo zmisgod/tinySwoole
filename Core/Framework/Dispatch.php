@@ -6,7 +6,7 @@ use Core\Uti\Tools\Register;
 
 class Dispatch
 {
-    static $instance;
+    private static $instance;
 
     static function getInstance()
     {
@@ -55,6 +55,8 @@ class Dispatch
                 throw new \Exception('class ['.$className.'] not found', 500);
             }
         }
-        $result->__call($mName);
+        if(!Response::getInstance()->isEndResponse()) {
+            $result->__call($mName);
+        }
     }
 }

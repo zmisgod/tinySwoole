@@ -4,22 +4,17 @@ namespace Core\Framework;
 use Core\Framework\Request\GetRequest;
 use Core\IO\Stream;
 
-class Request extends BaseRequest
+class Request extends RequestMethod
 {
     private static $instance;
+    private $body;
     private $swoole_http_request = null;
 
-    private $cookie;
-    private $header;
-    private $get;
-    private $post;
-    private $method;
-    private $body;
-    private $uri;
-    private $files;
-    public $input;
-    private $protocolVersion;
-
+    /**
+     * @param \swoole_http_request|null $swoole_request
+     *
+     * @return Request
+     */
     static function getInstance(\swoole_http_request $swoole_request = null)
     {
         if($swoole_request !== null) {
@@ -32,38 +27,19 @@ class Request extends BaseRequest
     {
         $this->swoole_http_request = $http_request;
 
-        //获取url信息
-        $this->uri = $this->parseUrl();
-
         //获取非urlencode-form表单的POST原始数据
         $this->body = new Stream($this->swoole_http_request->rawContent());
 
         //获取protocol version
-        $this->protocolVersion = str_replace('HTTP/', '', $this->swoole_http_request->server['server_protocol']);
+        $protocolVersion = str_replace('HTTP/','',$this->swoole_http_request->server['server_protocol']);
 
-        $this->method = $this->swoole_http_request->server['request_method'];
-
-        $this->header = $this->getHeaders();
-
-        $this->files = $this->parseFiles();
-
-        $this->cookie = $this->parseCookie();
-
-        $this->get = $this->parseGet();
-
-        $this->post = $this->parsePost();
-
-        $this->input = new GetRequest($this->get, $this->post, $this->cookie);
-
-        parent::__construct($this->header, $this->body, $this->protocolVersion);
+        parent::__construct($this->swoole_http_request->server['request_method'],$this->parseUrl(),$this->getHeaders(),$this->body,$protocolVersion);
+        $this->setRequestData($this->parseGet(),$this->parsePost(),$this->parseCookie(),$this->parseServer(),$this->parseFiles());
     }
 
-    public function parseHeader()
+    function getServerRequest()
     {
-        $headers = $this->swoole_http_request->header;
-        foreach ($headers as $header => $val) {
-            $this->appendHeader($header, $val);
-        }
+        return $this->swoole_http_request;
     }
 
     /**
@@ -71,7 +47,7 @@ class Request extends BaseRequest
      *
      * @return Uri
      */
-    public function parseUrl()
+    private function parseUrl()
     {
         $uri = new Uri();
         //默认为http
@@ -92,7 +68,7 @@ class Request extends BaseRequest
     /**
      * 从swoole中获取上传文件的信息
      */
-    public function parseFiles()
+    private function parseFiles()
     {
         $temp = [];
         if(isset($this->swoole_http_request->files)) {
@@ -114,7 +90,7 @@ class Request extends BaseRequest
      *
      * @return array|GetRequest
      */
-    public function parseGet()
+    private function parseGet()
     {
         return isset($this->swoole_http_request->get) ? $this->swoole_http_request->get: [];
     }
@@ -124,7 +100,7 @@ class Request extends BaseRequest
      *
      * @return array
      */
-    public function parsePost()
+    protected function parsePost()
     {
         return isset($this->swoole_http_request->post) ? $this->swoole_http_request->post : [];
     }
@@ -134,8 +110,18 @@ class Request extends BaseRequest
      *
      * @return array
      */
-    public function parseCookie()
+    private function parseCookie()
     {
         return isset($this->swoole_http_request->cookie) ? $this->swoole_http_request->cookie : [];
+    }
+
+    /**
+     * 从swoole获取server信息
+     *
+     * @return array
+     */
+    private function parseServer()
+    {
+        return isset($this->swoole_http_request->server) ? $this->swoole_http_request->server : [];
     }
 }

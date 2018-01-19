@@ -91,7 +91,7 @@ EOF;
 function stop($server)
 {
     $res = <<<EOF
-SERVER IS STOPPING\n
+SERVER IS STOPPING:\n
 EOF;
     echo $res;
     $res = $server->stopServer();
@@ -132,7 +132,7 @@ EOF;
 function reload(\Core\FrameEntry $server)
 {
     $res = <<<EOF
-SERVER IS RELOADING\n
+SERVER IS RELOADING:\n
 EOF;
     echo $res;
     $res = $server->reloadServer();
@@ -141,12 +141,12 @@ EOF;
 
 function error_msg($msg)
 {
-    return "\e[40;31merror: {$msg}\e[0m";
+    return "\e[49;31merror: {$msg}\e[0m";
 }
 
 function success_msg($msg)
 {
-    return "\e[40;32m$msg\e[0m";
+    return "\e[49;32m$msg\e[0m";
 }
 
 function checkResult($res, $show_color = true)

@@ -36,6 +36,9 @@ abstract class AbstractController
         return Response::getInstance();
     }
 
+    /**
+     * @return mixed
+     */
     function mysqli()
     {
         return Mysqli::getInstance(Config::getInstance()->getConfig('config.mysqli'));

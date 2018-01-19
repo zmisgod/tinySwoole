@@ -36,13 +36,21 @@ class Mysqli
     }
 
     /**
+     * @return mixed
+     */
+    public function getConnection()
+    {
+        return $this->con;
+    }
+
+    /**
      * 获取最后的插入id
      *
      * @return mixed
      */
     public function getLastInsertId()
     {
-        return mysqli_insert_id($this->con);
+        return mysqli_insert_id($this->getConnection());
     }
 
     /**
@@ -69,18 +77,19 @@ class Mysqli
 
     public function ping()
     {
-        if(!mysqli_ping($this->con)) {
+        if(!mysqli_ping($this->getConnection())) {
             return false;
         }
         return true;
     }
 
     /**
-     * 短线重连
+     * 断线重连
      */
     public function reConnect()
     {
         if(!@$this->ping()) {
+            //关闭之前的链接并建立新连接
             $this->close();
             return $this->connect();
         }
@@ -89,17 +98,17 @@ class Mysqli
 
     public function close()
     {
-        mysqli_close($this->con);
+        mysqli_close($this->getConnection());
     }
 
     public function getAffectedRows()
     {
-        return mysqli_affected_rows($this->con);
+        return mysqli_affected_rows($this->getConnection());
     }
 
     public function errorMessage($sql)
     {
-        return mysqli_error($this->con) . "<hr />$sql<hr />MYSQL SERVER: {$this->config['host']}, port : {$this->config['port']}";
+        return mysqli_error($this->getConnection()) . "<hr />$sql<hr />MYSQL SERVER: {$this->config['host']}, port : {$this->config['port']}";
     }
 
     public function query($sql)
@@ -107,9 +116,9 @@ class Mysqli
         $res = false;
         $this->recordDebug($sql);
         for($i = 0; $i < 2; $i ++) {
-            $res = mysqli_query($this->con, $sql);
+            $res = mysqli_query($this->getConnection(), $sql);
             if($res === false) {
-                if(in_array(mysqli_errno($this->con),[2006,2013])) {
+                if(in_array(mysqli_errno($this->getConnection()),[2006,2013])) {
                     $this->recordDebug('reconnect mysqli');
                     $r = $this->reConnect();
                     if($r === true) {

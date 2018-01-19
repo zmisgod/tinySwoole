@@ -8,6 +8,15 @@ return [
         'charset' => 'utf8',
         'database' => 'mytest'
     ],
+    'wechat' => [
+        'app_id'    => 'wx187323b17af46795',
+        'secret'    => 'e313b9b27058a1721033256779b95230',
+        'token'     => 'zmisgod',
+        'log' => [
+            'level' => 'debug',
+            'file'  => ROOT . '/Log/easywechat.log',
+        ],
+    ],
     'server' => [
         'host' => '127.0.0.1',
         'port' => 9519,

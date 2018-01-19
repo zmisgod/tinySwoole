@@ -134,7 +134,7 @@ class Server
         $this->getServer()->on('request',
             function (\swoole_http_request $swoole_request, \swoole_http_response $swoole_response) {
                 //框架请求的类
-                $userRequest = Request::getInstance($swoole_request);
+                Request::getInstance($swoole_request);
                 //框架响应的类
                 $userResponse = Response::getInstance($swoole_response);
                 try {
@@ -143,29 +143,8 @@ class Server
                 } catch (\Exception $e) {
                     $userResponse->writeJson($e->getCode(), '', $e->getMessage());
                 }
-                //获取当前请求框架的状态码
-                $status = $userResponse->getStatusCode();
-                //设置swoole的状态码
-                $swoole_response->status($status);
-                //获取框架的header
-                $headers = $userResponse->getHeaders();
-                //设置swoole的header
-                foreach ($headers as $header => $val) {
-                    foreach ($val as $sub) {
-                        $swoole_response->header($header, $sub);
-                    }
-                }
-                //获取正文（Core\Framework\response中write/writeJson的数据）
-                $write = $userResponse->getBody()->__toString();
-                if (!empty($write)) {
-                    $swoole_response->write($write);
-                }
-                //关闭文件资源（释放内存）
-                $userResponse->getBody()->close();
-                //结束Http响应，发送HTML内容
-                $swoole_response->end();
                 //设置这次请求结束
-                Response::getInstance()->end();
+                $userResponse->end(true);
             });
     }
 

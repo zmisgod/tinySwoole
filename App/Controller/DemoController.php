@@ -40,7 +40,7 @@ class DemoController extends AbstractController
      */
     public function getMethod()
     {
-        $data = $this->request()->input->get->getParams(['*']);
+        $data = $this->request()->input->get->getParam('name');
         $this->response()->writeJson(200, $data, 'ok');
     }
 
@@ -136,11 +136,11 @@ class DemoController extends AbstractController
      */
     public function udpClient()
     {
-        $get = $this->request()->parseGet();
-        if(!isset($get['name'])) {
+        $name = $this->request()->input->get->getParam('name');
+        if(!$name) {
             $msg = 'i am zmisgod';
         }else{
-            $msg = $get['name'];
+            $msg = $name;
         }
         $client = new \swoole_client(SWOOLE_SOCK_UDP);
         $client->connect('127.0.0.1', 9521);
