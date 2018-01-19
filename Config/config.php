@@ -14,7 +14,7 @@ return [
         'token'     => 'zmisgod',
         'log' => [
             'level' => 'debug',
-            'file'  => ROOT . '/Log/easywechat.log',
+            'file'  => ROOT . 'Log/easywechat.log',
         ],
     ],
     'server' => [

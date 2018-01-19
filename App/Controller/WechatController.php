@@ -14,7 +14,8 @@ class WechatController extends WechatAbstract
 
     public function server()
     {
-        $app = Factory::officialAccount(Config::getInstance()->getConfig('config.wechat'));
+        $config = Config::getInstance()->getConfig('config.wechat');
+        $app = Factory::officialAccount($config);
         $server = $app->server;
         $user = $app->user;
 

@@ -1,0 +1,279 @@
+PHP Notice:  Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+PHP   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+PHP   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+PHP   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+PHP  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+PHP  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+PHP  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+PHP  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+PHP  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+PHP  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+PHP  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+PHP  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+Notice: Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    2.5718    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    2.5806    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    2.5829    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    2.5829    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    2.6143    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    2.6360    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    2.6360    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    2.6438    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    2.6438    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    2.6438    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    2.6438    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+PHP Fatal error:  Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserClient->get(NULL)
+#1 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(148): App\Controller\WechatController->App\Controller\{closure}(Array)
+#2 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(112): EasyWeChat\Kernel\ServerGuard->callHandler(Object(Closure), Array)
+#3 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(96): EasyWeChat\Kernel\ServerGuard->notify(2, Array)
+#4 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Se in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    2.5718    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    2.5806    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    2.5829    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    2.5829    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    2.6143    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    2.6360    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    2.6360    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    2.6438    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    2.6438    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    2.6438    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    2.6438    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+    2.6441    2846056  18. EasyWeChat\OfficialAccount\User\UserClient->get() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:23
+
+[2018-01-19 16:09:03 *76153.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserCli
+[2018-01-19 16:09:03 $76140.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+worker_id : 2 worker pid :76153 exit_code : 255
+PHP Notice:  Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+PHP   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+PHP   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+PHP   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+PHP  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+PHP  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+PHP  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+PHP  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+PHP  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+PHP  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+PHP  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+PHP  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+Notice: Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    3.2820    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    3.2873    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    3.2880    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    3.2881    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    3.2973    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    3.3063    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    3.3063    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    3.3082    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    3.3082    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    3.3082    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    3.3082    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+PHP Fatal error:  Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserClient->get(NULL)
+#1 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(148): App\Controller\WechatController->App\Controller\{closure}(Array)
+#2 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(112): EasyWeChat\Kernel\ServerGuard->callHandler(Object(Closure), Array)
+#3 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(96): EasyWeChat\Kernel\ServerGuard->notify(2, Array)
+#4 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Se in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    3.2820    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    3.2873    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    3.2880    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    3.2881    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    3.2973    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    3.3063    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    3.3063    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    3.3082    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    3.3082    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    3.3082    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    3.3082    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+    3.3085    2846056  18. EasyWeChat\OfficialAccount\User\UserClient->get() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:23
+
+[2018-01-19 16:09:03 *76156.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserCli
+[2018-01-19 16:09:03 $76140.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+worker_id : 2 worker pid :76156 exit_code : 255
+PHP Notice:  Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+PHP   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+PHP   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+PHP   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+PHP  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+PHP  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+PHP  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+PHP  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+PHP  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+PHP  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+PHP  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+PHP  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+Notice: Undefined index: FromUserName in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    5.6991    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    5.7037    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    5.7043    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    5.7043    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    5.7124    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    5.7165    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    5.7165    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    5.7178    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    5.7178    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    5.7178    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    5.7178    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+
+PHP Fatal error:  Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserClient->get(NULL)
+#1 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(148): App\Controller\WechatController->App\Controller\{closure}(Array)
+#2 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(112): EasyWeChat\Kernel\ServerGuard->callHandler(Object(Closure), Array)
+#3 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php(96): EasyWeChat\Kernel\ServerGuard->notify(2, Array)
+#4 /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Se in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+PHP Stack trace:
+PHP   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+PHP   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+PHP   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+PHP   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+PHP   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+PHP   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+
+TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php on line 31
+
+Call Stack:
+    0.0008     381168   1. {main}() /Users/tingping/myweb/TinySwoole/index.php:0
+    0.0089     970920   2. command() /Users/tingping/myweb/TinySwoole/index.php:22
+    0.0089     970944   3. start() /Users/tingping/myweb/TinySwoole/index.php:29
+    0.0090     971568   4. Core\FrameEntry->startServer() /Users/tingping/myweb/TinySwoole/index.php:80
+    0.0091     974168   5. Core\Swoole\Server->startServer() /Users/tingping/myweb/TinySwoole/Core/FrameEntry.php:95
+    0.0094     983072   6. Swoole\Http\Server->start() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:111
+    5.6991    1251992   7. Core\Swoole\Server->Core\Swoole\{closure}() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:0
+    5.7037    1439488   8. Core\Framework\Dispatch->dispatch() /Users/tingping/myweb/TinySwoole/Core/Swoole/Server.php:142
+    5.7043    1463368   9. App\Controller\WechatController->__call() /Users/tingping/myweb/TinySwoole/Core/Framework/Dispatch.php:59
+    5.7043    1466304  10. App\Controller\WechatController->server() /Users/tingping/myweb/TinySwoole/Core/Framework/AbstractController.php:62
+    5.7124    2242152  11. EasyWeChat\OfficialAccount\Server\Guard->serve() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:28
+    5.7165    2744768  12. EasyWeChat\OfficialAccount\Server\Guard->resolve() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:105
+    5.7165    2744768  13. EasyWeChat\OfficialAccount\Server\Guard->handleRequest() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:183
+    5.7178    2846056  14. EasyWeChat\OfficialAccount\Server\Guard->dispatch() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/ServerGuard.php:253
+    5.7178    2846056  15. EasyWeChat\OfficialAccount\Server\Guard->notify() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:96
+    5.7178    2846056  16. EasyWeChat\OfficialAccount\Server\Guard->callHandler() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:112
+    5.7178    2846056  17. App\Controller\WechatController->App\Controller\{closure}() /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/Kernel/Traits/Observable.php:148
+    5.7181    2846056  18. EasyWeChat\OfficialAccount\User\UserClient->get() /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php:23
+
+[2018-01-19 16:09:06 *76154.3]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to EasyWeChat\OfficialAccount\User\UserClient::get() must be of the type string, null given, called in /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php on line 23 and defined in /Users/tingping/myweb/TinySwoole/vendor/overtrue/wechat/src/OfficialAccount/User/UserClient.php:31
+Stack trace:
+#0 /Users/tingping/myweb/TinySwoole/App/Controller/WechatController.php(23): EasyWeChat\OfficialAccount\User\UserCli
+[2018-01-19 16:09:06 $76140.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+worker_id : 3 worker pid :76154 exit_code : 255

@@ -54,7 +54,6 @@ abstract class AbstractController
         }
         $this->actionName($actionName);
         if(method_exists($this, 'beforeAction')) {
-            echo 1111111;
             $this->beforeAction();
         }
         if (!$this->response()->isEndResponse()) {
@@ -66,9 +65,7 @@ abstract class AbstractController
                 return;
             }
         }
-        echo 33333;
         if(method_exists($this, 'afterAction')) {
-            echo 222222;
             $this->afterAction();
         }
     }
