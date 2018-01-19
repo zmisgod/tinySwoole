@@ -53,6 +53,10 @@ abstract class AbstractController
             return;
         }
         $this->actionName($actionName);
+        if(method_exists($this, 'beforeAction')) {
+            echo 1111111;
+            $this->beforeAction();
+        }
         if (!$this->response()->isEndResponse()) {
             if (method_exists($this, $actionName)) {
                 $realName = $this->actionName;
@@ -61,6 +65,11 @@ abstract class AbstractController
                 $this->response()->setStatus(Status::CODE_NOT_FOUND);
                 return;
             }
+        }
+        echo 33333;
+        if(method_exists($this, 'afterAction')) {
+            echo 222222;
+            $this->afterAction();
         }
     }
 }

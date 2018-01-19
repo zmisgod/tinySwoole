@@ -25,6 +25,5 @@ class WechatController extends WechatAbstract
         });
 
         $server->serve()->send();
-        $this->destroy();
     }
 }

@@ -47,7 +47,7 @@ class Request extends RequestMethod
      *
      * @return Uri
      */
-    private function parseUrl()
+    public function parseUrl()
     {
         $uri = new Uri();
         //默认为http
