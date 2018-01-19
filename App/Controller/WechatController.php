@@ -14,7 +14,7 @@ class WechatController extends WechatAbstract
 
     public function server()
     {
-        if($_GET['echostr']){
+        if(isset($_GET['echostr'])){
             $this->response()->write($_GET['echostr']);
         }else {
             $config = Config::getInstance()->getConfig('config.wechat');
