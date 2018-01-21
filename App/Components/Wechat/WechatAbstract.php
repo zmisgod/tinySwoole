@@ -28,7 +28,7 @@ abstract class WechatAbstract extends AbstractController
      */
     public function app()
     {
-        $this->app = Wechat::getInstance()->getApplication();
+        return $this->app = Wechat::getInstance()->getApplication();
     }
 
     public function afterAction()

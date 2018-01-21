@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf45b67f-7473-48c8-a455-9f13d2221c22" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/WechatController.php" afterPath="$PROJECT_DIR$/App/Controller/WechatController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php" afterPath="$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,21 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WechatAbstract.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WechatAbstract.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state relative-caret-position="272">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WechatController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WechatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Controller/WechatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="21" />
+            <state relative-caret-position="74">
+              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -179,8 +179,8 @@
         <option value="$PROJECT_DIR$/App/Components/Wechat/WechatRequest.php" />
         <option value="$PROJECT_DIR$/Log/Server/swoole.log" />
         <option value="$PROJECT_DIR$/App/Components/Wechat/Wechat.php" />
-        <option value="$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php" />
         <option value="$PROJECT_DIR$/App/Controller/WechatController.php" />
+        <option value="$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php" />
       </list>
     </option>
   </component>
@@ -556,12 +556,12 @@
       <workItem from="1516154574787" duration="43027000" />
       <workItem from="1516539247080" duration="84000" />
       <workItem from="1516539377947" duration="30000" />
-      <workItem from="1516539412146" duration="4048000" />
+      <workItem from="1516539412146" duration="4262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176321000" />
+    <option name="totallyTimeSpent" value="176535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -993,18 +993,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php">
+    <entry file="file://$PROJECT_DIR$/App/Controller/WechatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="74">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Controller/WechatController.php">
+    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatAbstract.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="21" />
+        <state relative-caret-position="272">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding />
         </state>
       </provider>
