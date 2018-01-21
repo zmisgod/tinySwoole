@@ -48,7 +48,7 @@ class WechatController extends WechatAbstract
                         break;
                 }
             });
-            $response = $this->app()->server->serve();
+            $response = $server->serve();
             $this->response()->write($response->getContent());
         }
     }
