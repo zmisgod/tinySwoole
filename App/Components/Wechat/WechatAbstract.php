@@ -5,6 +5,9 @@ use Core\Framework\AbstractController;
 
 abstract class WechatAbstract extends AbstractController
 {
+    /**
+     * @var \EasyWeChat\OfficialAccount\Application
+     */
     public $app;
 
     public function beforeAction()
@@ -20,6 +23,9 @@ abstract class WechatAbstract extends AbstractController
         }
     }
 
+    /**
+     * @return \EasyWeChat\OfficialAccount\Application
+     */
     public function app()
     {
         return $this->app = Wechat::getInstance()->getApplication();
