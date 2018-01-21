@@ -18,7 +18,7 @@ class WechatController extends WechatAbstract
         if(isset($_GET['echostr'])){
             $this->response()->write($_GET['echostr']);
         }else {
-            $server = $this->app->server;
+            $server = $this->app()->server;
             $server->push(function($message) {
                 switch ($message['MsgType']) {
                     case 'event':
