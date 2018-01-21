@@ -1,7 +1,8 @@
 # TinySwoole
 
 这是一个很简单的基于swoole的http框架，主要实现了基础的`swoole_http_server`的功能以及监听`TCP`、`UDP`端口。
-为了让使用者了解如何使用swoole、学习如何与swoole结合框架使用以及与swoole编程与之前的fpm编程的区别。
+为了让使用者了解如何使用swoole、学习如何与swoole结合框架使用以及与swoole编程与之前的fpm编程的区别。内置easywechat,
+mysql断线重连特性，助力生产服务。
 
 框架的结构很简单，核心文件在`Core`文件夹下。
 - Framework 框架的核心文件，包括处理 Http 相关请求类，基础类等等
