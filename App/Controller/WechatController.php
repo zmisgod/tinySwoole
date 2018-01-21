@@ -10,7 +10,8 @@ class WechatController extends WechatAbstract
 {
     public function index()
     {
-        // TODO: Implement index() method.
+        $get = $this->request()->input->get->getParam('name');
+        $this->response()->write([$get]);
     }
 
     public function server()
@@ -19,6 +20,7 @@ class WechatController extends WechatAbstract
             $this->response()->write($_GET['echostr']);
         }else {
             $server = $this->app()->server;
+            $this->app()->request = new WechatRequest();
             $server->push(function($message) {
                 switch ($message['MsgType']) {
                     case 'event':

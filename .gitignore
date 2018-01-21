@@ -2,3 +2,7 @@
 
 /vendor/
 /Config/config.php
+
+Log/Server/pid.pid
+
+Log/Server/swoole.log

@@ -24,7 +24,6 @@ class Wechat
             $config = Config::getInstance()->getConfig('config.wechat');
         }
         $application    = Factory::officialAccount($config);
-        $application->request = new WechatRequest();
 
         $this->application = $application;
     }

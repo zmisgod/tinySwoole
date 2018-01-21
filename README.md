@@ -82,6 +82,11 @@ Mysqli::getInstance()->setDebug(true)->query('show tables')->printDebug();
 `$serverConfig = Config::getInstance()->getConfig('config.server');`<br />
 其中，config为Config下的config.php文件
 
+
+### Wechat 微信
+
+支持EasyWechat
+
 ### 静态文件
 
 静态文件在Public目录下（暂时需要配合nginx处理静态资源）
