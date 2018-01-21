@@ -18,11 +18,8 @@ class WechatController extends WechatAbstract
         if(isset($_GET['echostr'])){
             $this->response()->write($_GET['echostr']);
         }else {
-            $config = Config::getInstance()->getConfig('config.wechat');
-            $app    = Factory::officialAccount($config);
-            $server = $app->server;
-            $server->setRequest(WechatRequest::createFromGlobals());
-            $user   = $app->user;
+            $server = $this->app->server;
+            $user   = $this->app->user;
 
             $server->push(function($message) use ($user) {
                 $fromUser = $user->get($message['FromUserName']);

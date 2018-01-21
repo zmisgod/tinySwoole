@@ -5,6 +5,8 @@ use Core\Framework\AbstractController;
 
 abstract class WechatAbstract extends AbstractController
 {
+    public $app;
+
     public function beforeAction()
     {
         $_GET = isset($this->request()->getServerRequest()->get) ? $this->request()->getServerRequest()->get : [];
@@ -16,6 +18,11 @@ abstract class WechatAbstract extends AbstractController
                 $_SERVER[strtoupper($key)] = $value;
             }
         }
+    }
+
+    public function app()
+    {
+        return $this->app = Wechat::getInstance()->getApplication();
     }
 
     public function afterAction()
