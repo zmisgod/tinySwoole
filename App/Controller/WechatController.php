@@ -17,9 +17,19 @@ class WechatController extends WechatAbstract
         $message['FromUserName'] = 'FromUserName';
         $message['CreateTime']   = 'CreateTime';
         $message['MsgId']        = 'MsgId';
-        $message['Content'] = '你好';
-
-
+        $message['MsgType'] = 'text';
+        $message['Content'] = '我爱你';
+        try{
+            $obj = new WechatEvent();
+            $res = $obj->setMessage($message)->setType($message['MsgType'])->run('defaultResponse');
+            $this->response()->setHeader('Content-Type', 'text/html; charset=utf-8')->write($res);
+        }catch(WechatException $e ) {
+            $this->response()->write($e);
+        }catch(\ReflectionException $e) {
+            $this->response()->write($e);
+        }catch(\Exception $e) {
+            $this->response()->write($e);
+        }
     }
 
     public function server()

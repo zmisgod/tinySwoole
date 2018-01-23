@@ -9,6 +9,8 @@ abstract class AbstractEvent
     protected $to_user_name;
     protected $create_time;
     protected $msg_id;
+
+    protected $message;
     //当前的type
     protected $msg_type;
     private $defaultType = 'text';
@@ -22,9 +24,15 @@ abstract class AbstractEvent
         'voice',
     ];
 
-    protected function setDefaultType($type)
+    function setDefaultType($type)
     {
         $this->defaultType = $type;
+        return $this;
+    }
+
+    function setMessage($message)
+    {
+        $this->message = $message;
         return $this;
     }
 
@@ -46,6 +54,7 @@ abstract class AbstractEvent
             $methodFunc = $reflect->getMethod($method);
             if($methodFunc->isPublic()) {
                 $result = $reflect->newInstance();
+                $result->setData($this->message);
                 return call_user_func_array([$result, $method], $params);
             } else {
                 throw new WechatException('method :' . $method . ' in your class :' . $className . ' is not a public method');
