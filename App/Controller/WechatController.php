@@ -2,6 +2,9 @@
 namespace App\Controller;
 
 use App\Components\Wechat\WechatAbstract;
+use App\Components\Wechat\WechatMessageType\WechatEvent;
+use App\Components\Wechat\WechatMessageType\WechatException;
+use App\Components\Wechat\WechatMessageType\WechatProperty;
 use App\Components\Wechat\WechatRequest;
 use Core\Uti\Tools\Config;
 use EasyWeChat\Factory;
@@ -10,8 +13,24 @@ class WechatController extends WechatAbstract
 {
     public function index()
     {
-        $get = $this->request()->input->get->getParam('name');
-        $this->response()->write([$get]);
+        $message['ToUserName']   = 'ToUserName';
+        $message['FromUserName'] = 'FromUserName';
+        $message['CreateTime']   = 'CreateTime';
+        $message['MsgId']        = 'MsgId';
+        $message['Content'] = '你好';
+
+        try{
+            $obj = new WechatEvent();
+            $obj->setData($message);
+            $res = $obj->setType('text')->run('defaultResponse');
+            $this->response()->setHeader('Content-Type', 'text/html; charset=utf-8')->write($res);
+        }catch(WechatException $e ) {
+            $this->response()->write($e);
+        }catch(\ReflectionException $e) {
+            $this->response()->write($e);
+        }catch(\Exception $e) {
+            $this->response()->write($e);
+        }
     }
 
     public function server()
@@ -22,33 +41,14 @@ class WechatController extends WechatAbstract
             $server = $this->app()->server;
             $this->app()->request = new WechatRequest();
             $server->push(function($message) {
-                switch ($message['MsgType']) {
-                    case 'event':
-                        return '收到事件消息';
-                        break;
-                    case 'text':
-                        return '收到文字消息';
-                        break;
-                    case 'image':
-                        return '收到图片消息';
-                        break;
-                    case 'voice':
-                        return '收到语音消息';
-                        break;
-                    case 'video':
-                        return '收到视频消息';
-                        break;
-                    case 'location':
-                        return '收到坐标消息';
-                        break;
-                    case 'link':
-                        return '收到链接消息';
-                        break;
-                    // ... 其它消息
-                    default:
-                        return '收到其它消息';
-                        break;
+                if(in_array($message['MsgType'], ['event', 'text', 'image', 'voice', 'video', 'location', 'link'])) {
+                    $className = 'Wechat'.ucfirst($message['MsgType']);
+                }else{
+                    $className = 'WechatOthers';
                 }
+                $className .= 'App\Components\Wechat\WechatMessageType\\'.$className;
+                $obj = new $className;
+                $obj->setReceive($message);
             });
             $response = $server->serve();
             $this->response()->write($response->getContent());
