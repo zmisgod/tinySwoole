@@ -15,7 +15,10 @@ class WechatText extends AbstractEvent
             case '你是谁':
                 $res = '你猜猜';
                 break;
-            case 'zmisgod' || '官网':
+            case 'zmisgod':
+                $res = "<a href='https://zmis.me'>zmis.me官网</a>";
+                break;
+            case '官网':
                 $res = "<a href='https://zmis.me'>zmis.me官网</a>";
                 break;
             case '你好':
