@@ -42,8 +42,7 @@ class WechatController extends WechatAbstract
             $server->push(function($message) {
                 try{
                     $obj = new WechatEvent();
-                    $obj->setData($message);
-                    return $obj->setType($message['MsgType'])->run('defaultResponse');
+                    return $obj->setMessage($message)->setType($message['MsgType'])->run('defaultResponse');
                 }catch(WechatException $e ) {
                     return $e;
                 }catch(\ReflectionException $e) {
