@@ -19,18 +19,7 @@ class WechatController extends WechatAbstract
         $message['MsgId']        = 'MsgId';
         $message['Content'] = '你好';
 
-        try{
-            $obj = new WechatEvent();
-            $obj->setData($message);
-            $res = $obj->setType('text')->run('defaultResponse');
-            $this->response()->setHeader('Content-Type', 'text/html; charset=utf-8')->write($res);
-        }catch(WechatException $e ) {
-            $this->response()->write($e);
-        }catch(\ReflectionException $e) {
-            $this->response()->write($e);
-        }catch(\Exception $e) {
-            $this->response()->write($e);
-        }
+
     }
 
     public function server()
@@ -41,17 +30,20 @@ class WechatController extends WechatAbstract
             $server = $this->app()->server;
             $this->app()->request = new WechatRequest();
             $server->push(function($message) {
-                if(in_array($message['MsgType'], ['event', 'text', 'image', 'voice', 'video', 'location', 'link'])) {
-                    $className = 'Wechat'.ucfirst($message['MsgType']);
-                }else{
-                    $className = 'WechatOthers';
+                try{
+                    $obj = new WechatEvent();
+                    $obj->setData($message);
+                    return $obj->setType($message['MsgType'])->run('defaultResponse');
+                }catch(WechatException $e ) {
+                    return $e;
+                }catch(\ReflectionException $e) {
+                    return $e;
+                }catch(\Exception $e) {
+                    return $e;
                 }
-                $className .= 'App\Components\Wechat\WechatMessageType\\'.$className;
-                $obj = new $className;
-                $obj->setReceive($message);
             });
             $response = $server->serve();
-            $this->response()->write($response->getContent());
+            $this->response()->setHeader('Content-Type', 'text/html; charset=utf-8')->write($response->getContent());
         }
     }
 }
