@@ -1,6 +1,8 @@
 <?php
 namespace App\Components\Wechat\WechatMessageType;
 
+use Core\FrameEntry;
+
 class WechatText extends AbstractEvent
 {
     protected $content;
@@ -13,7 +15,7 @@ class WechatText extends AbstractEvent
                 $res = '🐱🐱 也爱你';
                 break;
             case '你是谁':
-                $res = '你猜猜';
+                $res = '你猜猜❓';
                 break;
             case 'zmisgod':
                 $res = "<a href='https://zmis.me'>zmis.me官网</a>";
@@ -22,10 +24,13 @@ class WechatText extends AbstractEvent
                 $res = "<a href='https://zmis.me'>zmis.me官网</a>";
                 break;
             case '你好':
-                $res = '你好呀';
+                $res = '😄 你好呀！';
                 break;
             case '你女朋友是谁':
-                $res = '狗蛋';
+                $res = ' 🐶 🥚 ';
+                break;
+            case '什么狗蛋':
+                $res = '口天吴 🐶 🥚 呀:)';
                 break;
             case '菜单':
                 $res = <<<EPR
@@ -35,7 +40,14 @@ class WechatText extends AbstractEvent
 zmisgod
 官网
 你好
+你女朋友是谁
+服务器状态
 EPR;
+                break;
+            case '服务器状态':
+                $frameEntry = new FrameEntry();
+                $data = $frameEntry->getStatus();
+                $res = $data['msg'];
                 break;
             default:
                 $res = '回复：菜单，查看更多内容';
