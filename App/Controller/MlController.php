@@ -6,7 +6,7 @@ use Core\Framework\AbstractController;
 use Core\Uti\Tools\Tools;
 use Phpml\Regression\LeastSquares;
 
-class TestController extends AbstractController
+class MlController extends AbstractController
 {
     public function index()
     {
