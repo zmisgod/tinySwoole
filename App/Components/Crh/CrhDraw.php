@@ -4,15 +4,23 @@ namespace App\Components\Crh;
 
 class CrhDraw
 {
-    private $startTag = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  width="13000" height="13000">';
-    private $endTag = '</svg>';
     private $data;
     private $type = [];
     private $_valid_type = ['circle','line'];
-    private $resize = 180;
+    public $resize = 180;
     private $_valid_import_type = ['svg', 'html'];
     private $import_type = 'svg';
     private $result_svg;
+
+    /**
+     * @var DrawSvg
+     */
+    public $crh;
+
+    function __construct()
+    {
+        $this->crh = new DrawSvg();
+    }
 
     public function setData($data)
     {
@@ -29,24 +37,29 @@ class CrhDraw
 
     public function importType($import_type)
     {
-        if(!in_array($import_type, [$this->_valid_import_type])) {
+        if(!in_array($import_type, $this->_valid_import_type)) {
             throw new \Exception("Invalid import type :" . $import_type);
         }
         $this->import_type = $import_type;
     }
 
+    public function createSvg($data)
+    {
+        $parse = implode('', $data);
+        return '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  width="'.$this->crh->maxWidth.'" height="'.$this->crh->maxWidth.'">'.$parse.'</svg>';
+    }
+
     public function run()
     {
-        $crh = new DrawSvg();
         $this->beforeRun();
         foreach($this->data as $k => $v) {
-            $crh->setData($v);
-            $crh->setParams($this->resize, 'red',7,3);
+            $this->crh->setData($v);
+            $this->crh->setParams($this->resize, 'red',7,3);
             foreach($this->type as $type) {
-                $result[] = call_user_func_array([$crh, 'create'. ucfirst($type)], []);
+                $result[] = call_user_func_array([$this->crh, 'create'. ucfirst($type)], []);
             }
         }
-        $this->result_svg = $this->startTag . implode('',$result) . $this->endTag;
+        $this->result_svg = $this->createSvg($result);
         return $this->afterRun();
     }
 

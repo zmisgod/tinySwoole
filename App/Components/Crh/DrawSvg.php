@@ -9,6 +9,9 @@ class DrawSvg
     protected $lineWeight;
     protected $dotsWeight;
 
+    public $maxWidth = 0;
+    public $maxHeight = 0;
+
     public function setData($data)
     {
         $this->data = $data;
@@ -20,6 +23,11 @@ class DrawSvg
         $this->lineColor = $color;
         $this->lineWeight = $lineWeight;
         $this->dotsWeight = $dotsWeight;
+    }
+
+    public function setResize($resize)
+    {
+        $this->resize = $resize;
     }
 
     public function createLine()
@@ -41,10 +49,32 @@ class DrawSvg
         return $svg;
     }
 
+    public function recountLo($number)
+    {
+        return round(($number - 90) * $this->resize, 5);
+    }
+
+    public function recountLa($number)
+    {
+        return round(($number - 10) * $this->resize, 5);
+    }
+
+
     public function createCircle()
     {
-        $la = ($this->data['longtitude']-90) * $this->resize;
-        $lo = ($this->data['latitude']-10) * $this->resize;
-        return '<circle cx="'.$la.'" cy="'.$lo.'" r="'.$this->dotsWeight.'" stroke="black" fill="#fff" alt="'.$this->data['train_name'].'" />';
+        $la = $this->recountLo($this->data['longtitude']);
+        $lo = $this->recountLa($this->data['latitude']);
+        if($la > $lo) {
+            if($la > $this->maxHeight) {
+                $this->maxHeight = $la;
+                $this->maxWidth = $la;
+            }
+        }else{
+            if($lo > $this->maxHeight) {
+                $this->maxHeight = $lo;
+                $this->maxWidth = $lo;
+            }
+        }
+        return '<circle cx="'.$la.'" cy="'.$lo.'" r="'.$this->dotsWeight.'" aid="'.$this->data['id'].'" stroke="black" fill="#fff" alt="'.$this->data['train_name'].'" />';
     }
 }

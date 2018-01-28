@@ -41,7 +41,12 @@ abstract class AbstractController
      */
     function mysqli()
     {
-        return Mysqli::getInstance(Config::getInstance()->getConfig('config.mysqli'));
+        try{
+            return Mysqli::getInstance(Config::getInstance()->getConfig('config.mysqli'));
+        }catch (\Exception $e) {
+            $this->response()->writeJson(500, '', $e->getMessage());
+            return;
+        }
     }
 
     function __call($actionName, $arguments = null)

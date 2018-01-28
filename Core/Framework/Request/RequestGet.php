@@ -17,7 +17,7 @@ class RequestGet
     {
         if(isset($this->params[$name])) {
             if($func !== false && function_exists($func)) {
-                return call_user_func($func, [$this->params[$name]]);
+                return call_user_func($func, $this->params[$name]);
             }else{
                 return $this->params[$name];
             }
