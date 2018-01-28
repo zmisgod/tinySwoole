@@ -181,13 +181,14 @@
             if(search_keyword == "") {
                 return
             }
+            $("#fright").empty()
             $.get(host + "/crh/searchStation?station_name="+search_keyword, function(data){
                 if(data.code == 200) {
                     var tem = ''
                     $.each(data.result, function(index, station_info){
                         tem += searchResultTemplate(station_info.train_name, station_info.id, station_info.latitude, station_info.longtitude)
                     })
-                    $("#fright").show().empty().append(tem)
+                    $("#fright").show().append(tem)
                 }
             })
         })

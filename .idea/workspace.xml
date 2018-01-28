@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf45b67f-7473-48c8-a455-9f13d2221c22" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TinySwoole.iml" afterPath="$PROJECT_DIR$/.idea/TinySwoole.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/CRH.svg" afterPath="$PROJECT_DIR$/App/Components/Crh/CRH.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" afterPath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" afterPath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/crh.html" afterPath="$PROJECT_DIR$/App/Components/Crh/crh.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/CrhController.php" afterPath="$PROJECT_DIR$/App/Controller/CrhController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.php" afterPath="$PROJECT_DIR$/Config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Framework/AbstractController.php" afterPath="$PROJECT_DIR$/Core/Framework/AbstractController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Framework/Request/RequestGet.php" afterPath="$PROJECT_DIR$/Core/Framework/Request/RequestGet.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +26,8 @@
       <file leaf-file-name="crh.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="175" column="17" selection-start-line="175" selection-start-column="17" selection-end-line="175" selection-end-column="17" />
+            <state relative-caret-position="240">
+              <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
               <folding>
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -531,12 +524,12 @@
       <workItem from="1516929534433" duration="8101000" />
       <workItem from="1516963511917" duration="81000" />
       <workItem from="1517064270823" duration="8083000" />
-      <workItem from="1517117242294" duration="15163000" />
+      <workItem from="1517117242294" duration="15846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224439000" />
+    <option name="totallyTimeSpent" value="225122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="23" width="1748" height="897" extended-state="0" />
@@ -914,8 +907,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="175" column="17" selection-start-line="175" selection-start-column="17" selection-end-line="175" selection-end-column="17" />
+        <state relative-caret-position="240">
+          <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
           <folding>
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
