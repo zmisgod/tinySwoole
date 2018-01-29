@@ -51,16 +51,20 @@ class CrhDraw
 
     public function run()
     {
-        $this->beforeRun();
-        foreach($this->data as $k => $v) {
-            $this->crh->setData($v);
-            $this->crh->setParams($this->resize, 'red',7,3);
-            foreach($this->type as $type) {
-                $result[] = call_user_func_array([$this->crh, 'create'. ucfirst($type)], []);
+        try {
+            $this->beforeRun();
+            foreach ($this->data as $k => $v) {
+                $this->crh->setData($v);
+                $this->crh->setParams($this->resize, 'red', 7, 3);
+                foreach ($this->type as $type) {
+                    $result[] = call_user_func_array([$this->crh, 'create' . ucfirst($type)], []);
+                }
             }
+            $this->result_svg = $this->createSvg($result);
+            return $this->afterRun();
+        }catch (\Exception $e) {
+            return false;
         }
-        $this->result_svg = $this->createSvg($result);
-        return $this->afterRun();
     }
 
     private function beforeRun()

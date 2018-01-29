@@ -133,6 +133,19 @@
         }
         return true
     }
+    function autoshow() {
+        $.get(host + "/crh/showData", function(data){
+            if(data.code == 200) {
+                console.log(data.result)
+                $.each(data.result, function(index, rest){
+                    d3.select("svg").append("polyline")
+                        .attr("points", rest.data)
+                        .attr("id", rest.train_name)
+                        .attr("style", "fill:none;stroke:" + rest.train_color + ";stroke-width:"+rest.train_weight);
+                })
+            }
+        })
+    }
     function searchResultTemplate(station_name, station_id,  lo, la) {
         return '<div class="finformation"> <input type="text" class="station_name" value="'+station_name+'" readonly> <input type="text" class="station_id" value="'+station_id+'" readonly> <input type="text" class="station_x" value="'+la+'" readonly> <input type="text" class="station_y" value="'+lo+'" readonly><button class="add">add</button></div>'
     }
@@ -158,6 +171,7 @@
         writeData(station_name, station_id, crh_en_name, la, lo)
     })
     $(document).ready(function () {
+        autoshow()
         $("#end").hide();
         $("#search").hide();
         $("#fright").hide();

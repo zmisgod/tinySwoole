@@ -37,11 +37,6 @@ class CrhController extends AbstractController
         if($station_name) {
             $station_name = addslashes($station_name);
             $data = $this->mysqli()->query("select * from crh_station_lists where train_name like '%".$station_name."%'")->fetchAll();
-            $this->response()->setHeader("Access-Control-Allow-Credentials", "true");
-            $this->response()->setHeader("Access-Control-Allow-Headers", "Origin,Authorization,Access-Control-Allow-Origin");
-            $this->response()->setHeader("Access-Control-Allow-Methods", "*");
-            $this->response()->setHeader("Access-Control-Allow-Origin", "*");
-            $this->response()->setHeader("Access-Control-Expose-Headers", "Content-Length,Access-Control-Allow-Origin");
             if($data) {
                 $draw = new CrhDraw();
                 $draw->crh->setResize($draw->resize);
@@ -60,11 +55,6 @@ class CrhController extends AbstractController
 
     public function saveData()
     {
-        $this->response()->setHeader("Access-Control-Allow-Credentials", "true");
-        $this->response()->setHeader("Access-Control-Allow-Headers", "Origin,Authorization,Access-Control-Allow-Origin");
-        $this->response()->setHeader("Access-Control-Allow-Methods", "*");
-        $this->response()->setHeader("Access-Control-Allow-Origin", "*");
-        $this->response()->setHeader("Access-Control-Expose-Headers", "Content-Length,Access-Control-Allow-Origin");
         $station_name = $this->request()->input->post->getParam('station_name', '');
         if(empty($station_name)) {
             $this->response()->writeJson(403, '', 'empty station name');
@@ -106,5 +96,44 @@ class CrhController extends AbstractController
                     'ids' => $ids_arr
                 ]);
         }
+    }
+
+    public function showData()
+    {
+        $way = $this->mysqli()->query("select * from crh_train_group_bind")->fetchall();
+        if($way) {
+            $draw = new CrhDraw();
+            $draw->crh->setResize($draw->resize);
+            $result = [];
+            foreach ($way as $v) {
+                $detail = $this->mysqli()->query("select l.longtitude, l.latitude,l.id,l.train_name from crh_station_lists as l  left join crh_train_group_bind_details as d  on d.station_id=l.id where d.train_id = ".$v['train_id']." order by sort_by asc")
+                    ->fetchall();
+                $data = '';
+                foreach ($detail as $val) {
+                    if($val['longtitude']) {
+                        $data .=  ', '.$draw->crh->recountLo($val['longtitude']).','.$draw->crh->recountLa($val['latitude']);
+                    }
+                }
+                $data = substr($data, 1);
+                $result[] = [
+                    'train_name' => $v['train_name'],
+                    'train_color' => $v['train_color'],
+                    'train_weight' => $v['train_weight'],
+                    'data' => $data
+                ];
+            }
+            $this->response()->writeJson(200, $result, 'ok');
+        }else{
+            $this->response()->writeJson(403, '', 'empty');
+        }
+    }
+
+    public function afterAction()
+    {
+        $this->response()->setHeader("Access-Control-Allow-Credentials", "true");
+        $this->response()->setHeader("Access-Control-Allow-Headers", "Origin,Authorization,Access-Control-Allow-Origin");
+        $this->response()->setHeader("Access-Control-Allow-Methods", "*");
+        $this->response()->setHeader("Access-Control-Allow-Origin", "*");
+        $this->response()->setHeader("Access-Control-Expose-Headers", "Content-Length,Access-Control-Allow-Origin");
     }
 }
