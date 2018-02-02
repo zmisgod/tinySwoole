@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf45b67f-7473-48c8-a455-9f13d2221c22" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TinySwoole.iml" afterPath="$PROJECT_DIR$/.idea/TinySwoole.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" afterPath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
-      <change beforePath="$PROJECT_DIR$/App/Components/Crh/crh.html" afterPath="$PROJECT_DIR$/App/Components/Crh/crh.html" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/CrhController.php" afterPath="$PROJECT_DIR$/App/Controller/CrhController.php" />
-      <change beforePath="$PROJECT_DIR$/Config/config.php" afterPath="$PROJECT_DIR$/Config/config.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Components/Crh/CRH.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Components/Crh/crh.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TinySwoole.iml" afterPath="$PROJECT_DIR$/.idea/TinySwoole.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" afterPath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" afterPath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/CrhController.php" afterPath="$PROJECT_DIR$/App/Controller/CrhController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.php" afterPath="$PROJECT_DIR$/Config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Framework/Response.php" afterPath="$PROJECT_DIR$/Core/Framework/Response.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,62 +26,30 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="TinySwoole" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="crh.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3146">
-              <caret line="144" column="18" lean-forward="false" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
-              <folding>
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CrhController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Controller/CrhController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="115" column="17" lean-forward="true" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+            <state relative-caret-position="96">
+              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
               <folding>
-                <marker date="1517241517538" expanded="true" signature="260:314" ph="select * fro... crh_station_lists" />
-                <marker date="1517241517538" expanded="true" signature="1104:1160" ph="select * fro... crh_station_lists" />
-                <marker date="1517241517538" expanded="true" signature="1104:1179" ph="select * fro... crh_station_lists" />
-                <marker date="1517241517538" expanded="true" signature="2601:2679" ph="select train... crh_train_group_bind" />
-                <marker date="1517241517538" expanded="true" signature="2864:3010" ph="insert into crh_train_group_bind... " />
-                <marker date="1517241517538" expanded="true" signature="2864:3028" ph="insert into crh_train_group_bind... " />
-                <marker date="1517241517538" expanded="true" signature="3078:3156" ph="select train... crh_train_group_bind" />
-                <marker date="1517241517538" expanded="true" signature="3511:3600" ph="insert into crh_train_group_bind_details... " />
-                <marker date="1517241517538" expanded="true" signature="3511:3601" ph="insert into crh_train_group_bind_details... " />
-                <marker date="1517241517538" expanded="true" signature="3930:3964" ph="select * fro... crh_train_group_bind" />
-                <marker date="1517241517538" expanded="true" signature="4195:4358" ph="select l.lon... crh_station_lists" />
-                <marker date="1517241517538" expanded="true" signature="4195:4398" ph="select l.lon... crh_station_lists" />
+                <marker date="1517533283000" expanded="true" signature="408:465" ph="select * fro... crh_station_lists" />
+                <marker date="1517533283000" expanded="true" signature="1256:1334" ph="select * fro... train_name" />
+                <marker date="1517533283000" expanded="true" signature="2485:2556" ph="insert into " />
+                <marker date="1517533283000" expanded="true" signature="3131:3186" ph="select id fr... $" />
+                <marker date="1517533283000" expanded="true" signature="4831:4908" ph="select train... crh_train_group_bind" />
+                <marker date="1517533283000" expanded="true" signature="5093:5256" ph="insert into crh_train_group_bind... " />
+                <marker date="1517533283000" expanded="true" signature="5306:5383" ph="select train... crh_train_group_bind" />
+                <marker date="1517533283000" expanded="true" signature="5762:5854" ph="insert into crh_train_group_bind_details... " />
+                <marker date="1517533283000" expanded="true" signature="6183:6197" ph="select * fro... crh_train_group_bind" />
+                <marker date="1517533283000" expanded="true" signature="6183:6216" ph="select * fro... " />
+                <marker date="1517533283000" expanded="true" signature="6447:6666" ph="select l.lon... crh_station_lists" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrhDraw.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawSvg.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -87,9 +57,41 @@
       <file leaf-file-name="AbstractController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1584">
-              <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="30" />
+            <state relative-caret-position="816">
+              <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2023">
+              <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="swoole.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Log/Server/swoole.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="1645" column="59" lean-forward="true" selection-start-line="1645" selection-start-column="59" selection-end-line="1645" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CrhDraw.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1530">
+              <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+              <folding>
+                <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,7 +138,6 @@
         <option value="$PROJECT_DIR$/Core/Framework/RequestHeader.php" />
         <option value="$PROJECT_DIR$/Core/Framework/RequestMethod.php" />
         <option value="$PROJECT_DIR$/Core/Framework/ResponseMethod.php" />
-        <option value="$PROJECT_DIR$/Core/Framework/Response.php" />
         <option value="$PROJECT_DIR$/Core/Framework/Request/RequestCookie.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -162,13 +163,14 @@
         <option value="$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatText.php" />
         <option value="$PROJECT_DIR$/App/Components/Crh/Crh.php" />
         <option value="$PROJECT_DIR$/App/Controller/MlController.php" />
-        <option value="$PROJECT_DIR$/Config/config.php" />
         <option value="$PROJECT_DIR$/Core/Framework/AbstractController.php" />
         <option value="$PROJECT_DIR$/Core/Framework/Request/RequestGet.php" />
-        <option value="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
-        <option value="$PROJECT_DIR$/Log/Server/swoole.log" />
+        <option value="$PROJECT_DIR$/Config/config.php" />
         <option value="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
+        <option value="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
         <option value="$PROJECT_DIR$/App/Components/Crh/crh.html" />
+        <option value="$PROJECT_DIR$/Core/Framework/Response.php" />
+        <option value="$PROJECT_DIR$/Log/Server/swoole.log" />
         <option value="$PROJECT_DIR$/App/Controller/CrhController.php" />
       </list>
     </option>
@@ -204,10 +206,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
+    <option name="x" value="-1890" />
     <option name="y" value="23" />
-    <option name="width" value="1844" />
-    <option name="height" value="982" />
+    <option name="width" value="1890" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -227,50 +229,116 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="App" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="App" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="App" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Log" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Log" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Server" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="TinySwoole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinySwoole" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Log" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Log" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -286,15 +354,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Public/temp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Core/Uti/DB" />
       <recent name="$PROJECT_DIR$/App" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Public/image" />
       <recent name="$PROJECT_DIR$/Public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/App/Components/Crh" />
+      <recent name="$PROJECT_DIR$/Public/temp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -310,6 +379,23 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -327,8 +413,21 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -346,14 +445,6 @@
       <test-directory />
       <recursive>false</recursive>
       <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -405,26 +496,29 @@
       <workItem from="1517117242294" duration="15846000" />
       <workItem from="1517235624653" duration="3238000" />
       <workItem from="1517241476995" duration="153000" />
+      <workItem from="1517273981648" duration="2607000" />
+      <workItem from="1517361400634" duration="3353000" />
+      <workItem from="1517447598871" duration="10036000" />
+      <workItem from="1517532750623" duration="796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228513000" />
+    <option name="totallyTimeSpent" value="245305000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="23" width="1844" height="982" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1890" y="23" width="1890" height="1057" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1653718" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16558442" sideWeight="0.49501246" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22096956" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16891192" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16396104" sideWeight="0.50498754" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -456,7 +550,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -476,14 +570,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core.php" />
     <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/Traits/ResponseCastable.php" />
     <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/ServerGuard.php" />
     <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatOthers.php" />
@@ -535,13 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="136" column="9" lean-forward="false" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -651,20 +730,6 @@
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js" />
     <entry file="file://$PROJECT_DIR$/../swoole-ide-helper-master/docs/js/jquery-1.4.2.min.js" />
     <entry file="file://$PROJECT_DIR$/../swoole-ide-helper-master/docs/js/jquery-ui-1.8.2.custom.min.js" />
-    <entry file="file://$PROJECT_DIR$/Log/easywechat.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php" />
     <entry file="file://$PROJECT_DIR$/Core/Framework/Request/RequestGet.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -679,16 +744,6 @@
         <state relative-caret-position="374">
           <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.svg">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="0" column="12794" lean-forward="false" selection-start-line="0" selection-start-column="12790" selection-end-line="0" selection-end-column="12794" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Core/Uti/DB/Mysqli.php">
@@ -721,64 +776,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Log/Server/swoole.log">
+    <entry file="file://$PROJECT_DIR$/Config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5126">
-          <caret line="477" column="14" lean-forward="false" selection-start-line="477" selection-start-column="4" selection-end-line="477" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
+    <entry file="file://$PROJECT_DIR$/Log/easywechat.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh_bk.html" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.svg" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.json" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        <state relative-caret-position="1530">
+          <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+          <folding>
+            <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html">
+    <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3146">
-          <caret line="144" column="18" lean-forward="false" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="816">
+          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log/Server/swoole.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="1645" column="59" lean-forward="true" selection-start-line="1645" selection-start-column="59" selection-end-line="1645" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Controller/CrhController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="115" column="17" lean-forward="true" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+        <state relative-caret-position="96">
+          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
           <folding>
-            <marker date="1517241517538" expanded="true" signature="260:314" ph="select * fro... crh_station_lists" />
-            <marker date="1517241517538" expanded="true" signature="1104:1160" ph="select * fro... crh_station_lists" />
-            <marker date="1517241517538" expanded="true" signature="1104:1179" ph="select * fro... crh_station_lists" />
-            <marker date="1517241517538" expanded="true" signature="2601:2679" ph="select train... crh_train_group_bind" />
-            <marker date="1517241517538" expanded="true" signature="2864:3010" ph="insert into crh_train_group_bind... " />
-            <marker date="1517241517538" expanded="true" signature="2864:3028" ph="insert into crh_train_group_bind... " />
-            <marker date="1517241517538" expanded="true" signature="3078:3156" ph="select train... crh_train_group_bind" />
-            <marker date="1517241517538" expanded="true" signature="3511:3600" ph="insert into crh_train_group_bind_details... " />
-            <marker date="1517241517538" expanded="true" signature="3511:3601" ph="insert into crh_train_group_bind_details... " />
-            <marker date="1517241517538" expanded="true" signature="3930:3964" ph="select * fro... crh_train_group_bind" />
-            <marker date="1517241517538" expanded="true" signature="4195:4358" ph="select l.lon... crh_station_lists" />
-            <marker date="1517241517538" expanded="true" signature="4195:4398" ph="select l.lon... crh_station_lists" />
+            <marker date="1517533283000" expanded="true" signature="408:465" ph="select * fro... crh_station_lists" />
+            <marker date="1517533283000" expanded="true" signature="1256:1334" ph="select * fro... train_name" />
+            <marker date="1517533283000" expanded="true" signature="2485:2556" ph="insert into " />
+            <marker date="1517533283000" expanded="true" signature="3131:3186" ph="select id fr... $" />
+            <marker date="1517533283000" expanded="true" signature="4831:4908" ph="select train... crh_train_group_bind" />
+            <marker date="1517533283000" expanded="true" signature="5093:5256" ph="insert into crh_train_group_bind... " />
+            <marker date="1517533283000" expanded="true" signature="5306:5383" ph="select train... crh_train_group_bind" />
+            <marker date="1517533283000" expanded="true" signature="5762:5854" ph="insert into crh_train_group_bind_details... " />
+            <marker date="1517533283000" expanded="true" signature="6183:6197" ph="select * fro... crh_train_group_bind" />
+            <marker date="1517533283000" expanded="true" signature="6183:6216" ph="select * fro... " />
+            <marker date="1517533283000" expanded="true" signature="6447:6666" ph="select l.lon... crh_station_lists" />
           </folding>
         </state>
       </provider>

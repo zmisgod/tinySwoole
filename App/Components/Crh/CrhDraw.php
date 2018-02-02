@@ -8,7 +8,7 @@ class CrhDraw
     private $type = [];
     private $_valid_type = ['circle','line'];
     public $resize = 180;
-    private $_valid_import_type = ['svg', 'html'];
+    private $_valid_import_type = ['svg', 'html', 'json'];
     private $import_type = 'svg';
     private $result_svg;
 
@@ -43,12 +43,6 @@ class CrhDraw
         $this->import_type = $import_type;
     }
 
-    public function createSvg($data)
-    {
-        $parse = implode('', $data);
-        return '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  width="'.$this->crh->maxWidth.'" height="'.$this->crh->maxWidth.'">'.$parse.'</svg>';
-    }
-
     public function run()
     {
         try {
@@ -57,10 +51,14 @@ class CrhDraw
                 $this->crh->setData($v);
                 $this->crh->setParams($this->resize, 'red', 7, 3);
                 foreach ($this->type as $type) {
-                    $result[] = call_user_func_array([$this->crh, 'create' . ucfirst($type)], []);
+                    if($this->import_type == 'json') {
+                        $result[] = call_user_func_array([$this->crh, 'create'.ucfirst($this->import_type)], []);
+                    }else{
+                        $result[] = call_user_func_array([$this->crh, 'create' . ucfirst($type)], []);
+                    }
                 }
             }
-            $this->result_svg = $this->createSvg($result);
+            $this->result_svg = $result;
             return $this->afterRun();
         }catch (\Exception $e) {
             return false;
@@ -81,8 +79,13 @@ class CrhDraw
     {
         if($this->import_type == 'html') {
 
+        }elseif($this->import_type == 'json'){
+            file_put_contents(__DIR__.'/CRH.json', json_encode($this->result_svg));
+            return [true,'生成成功'];
         }else{
-            file_put_contents(__DIR__ . '/CRH.svg',$this->result_svg);
+            $parse = implode('', $this->result_svg);
+            $output = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  width="'.$this->crh->maxWidth.'" height="'.$this->crh->maxWidth.'">'.$parse.'</svg>';
+            file_put_contents(__DIR__ . '/CRH.svg',$output);
             return [true,'生成成功'];
         }
     }

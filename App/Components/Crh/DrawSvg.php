@@ -59,22 +59,45 @@ class DrawSvg
         return round(($number - 10) * $this->resize, 5);
     }
 
+    private $la;
+    private $lo;
+    private $stroke = 'black';
+    private $fill = '#fff';
+
+    private function beforeCreate()
+    {
+        $this->la = $this->recountLo($this->data['longtitude']);
+        $this->lo = $this->recountLa($this->data['latitude']);
+        if($this->la > $this->lo) {
+            if($this->la > $this->maxHeight) {
+                $this->maxHeight = $this->la;
+                $this->maxWidth = $this->la;
+            }
+        }else{
+            if($this->lo > $this->maxHeight) {
+                $this->maxHeight = $this->lo;
+                $this->maxWidth = $this->lo;
+            }
+        }
+    }
 
     public function createCircle()
     {
-        $la = $this->recountLo($this->data['longtitude']);
-        $lo = $this->recountLa($this->data['latitude']);
-        if($la > $lo) {
-            if($la > $this->maxHeight) {
-                $this->maxHeight = $la;
-                $this->maxWidth = $la;
-            }
-        }else{
-            if($lo > $this->maxHeight) {
-                $this->maxHeight = $lo;
-                $this->maxWidth = $lo;
-            }
-        }
-        return '<circle cx="'.$la.'" cy="'.$lo.'" r="'.$this->dotsWeight.'" aid="'.$this->data['id'].'" stroke="black" fill="#fff" alt="'.$this->data['train_name'].'" />';
+        $this->beforeCreate();
+        return '<circle cx="'.$this->la.'" cy="'.$this->lo.'" r="'.$this->dotsWeight.'" aid="'.$this->data['id'].'" stroke="'.$this->stroke.'" fill="'.$this->fill.'" alt="'.$this->data['train_name'].'" />';
+    }
+
+    public function createJson()
+    {
+        $this->beforeCreate();
+        return [
+            'cx' => $this->la,
+            'cy' => $this->lo,
+            'r' => $this->dotsWeight,
+            'aid' => $this->data['id'],
+            'stroke' => $this->stroke,
+            'fill' => $this->fill,
+            'alt' => $this->data['train_name']
+        ];
     }
 }

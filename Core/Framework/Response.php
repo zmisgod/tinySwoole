@@ -129,7 +129,7 @@ class Response extends ResponseMethod
             ];
             $this->getBody()->write(json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
             $this->setHeader('Content-Type', 'application/json;charset=utf-8');
-            $this->setStatus($statusCode);
+            $this->setStatus(200);
             return true;
         }else{
             trigger_error('response has end');
