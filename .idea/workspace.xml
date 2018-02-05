@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf45b67f-7473-48c8-a455-9f13d2221c22" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Components/Crh/CRH.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/App/Components/Crh/crh.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TinySwoole.iml" afterPath="$PROJECT_DIR$/.idea/TinySwoole.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" afterPath="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" afterPath="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Controller/CrhController.php" afterPath="$PROJECT_DIR$/App/Controller/CrhController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.php" afterPath="$PROJECT_DIR$/Config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Framework/Response.php" afterPath="$PROJECT_DIR$/Core/Framework/Response.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Framework/AbstractTask.php" afterPath="$PROJECT_DIR$/Core/Framework/AbstractTask.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Core/Uti/DB/MysqliRecord.php" afterPath="$PROJECT_DIR$/Core/Uti/DB/MysqliRecord.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,43 +29,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CrhController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CrhController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Controller/CrhController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+            <state relative-caret-position="253">
+              <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
               <folding>
-                <marker date="1517533283000" expanded="true" signature="408:465" ph="select * fro... crh_station_lists" />
-                <marker date="1517533283000" expanded="true" signature="1256:1334" ph="select * fro... train_name" />
-                <marker date="1517533283000" expanded="true" signature="2485:2556" ph="insert into " />
-                <marker date="1517533283000" expanded="true" signature="3131:3186" ph="select id fr... $" />
-                <marker date="1517533283000" expanded="true" signature="4831:4908" ph="select train... crh_train_group_bind" />
-                <marker date="1517533283000" expanded="true" signature="5093:5256" ph="insert into crh_train_group_bind... " />
-                <marker date="1517533283000" expanded="true" signature="5306:5383" ph="select train... crh_train_group_bind" />
-                <marker date="1517533283000" expanded="true" signature="5762:5854" ph="insert into crh_train_group_bind_details... " />
-                <marker date="1517533283000" expanded="true" signature="6183:6197" ph="select * fro... crh_train_group_bind" />
-                <marker date="1517533283000" expanded="true" signature="6183:6216" ph="select * fro... " />
-                <marker date="1517533283000" expanded="true" signature="6447:6666" ph="select l.lon... crh_station_lists" />
+                <marker date="1517796630000" expanded="true" signature="477:534" ph="select * fro... crh_station_lists" />
+                <marker date="1517796630000" expanded="true" signature="1325:1403" ph="select * fro... train_name" />
+                <marker date="1517796630000" expanded="true" signature="2778:2849" ph="insert into " />
+                <marker date="1517796630000" expanded="true" signature="3424:3479" ph="select id fr... $" />
+                <marker date="1517796630000" expanded="true" signature="3424:3496" ph="select id fr... $" />
+                <marker date="1517796630000" expanded="true" signature="5127:5204" ph="select train... crh_train_group_bind" />
+                <marker date="1517796630000" expanded="true" signature="5389:5552" ph="insert into crh_train_group_bind... " />
+                <marker date="1517796630000" expanded="true" signature="5602:5679" ph="select train... crh_train_group_bind" />
+                <marker date="1517796630000" expanded="true" signature="6058:6150" ph="insert into crh_train_group_bind_details... " />
+                <marker date="1517796630000" expanded="true" signature="6479:6493" ph="select * fro... crh_train_group_bind" />
+                <marker date="1517796630000" expanded="true" signature="6479:6512" ph="select * fro... " />
+                <marker date="1517796630000" expanded="true" signature="6743:6962" ph="select l.lon... crh_station_lists" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
+      <file leaf-file-name="CrhDraw.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="314">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Response.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
+      <file leaf-file-name="DrawSvg.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
+            <state relative-caret-position="82">
+              <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -77,20 +77,74 @@
       <file leaf-file-name="swoole.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Log/Server/swoole.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="1645" column="59" lean-forward="true" selection-start-line="1645" selection-start-column="59" selection-end-line="1645" selection-end-column="59" />
+            <state relative-caret-position="-174">
+              <caret line="4666" column="38" lean-forward="false" selection-start-line="4666" selection-start-column="38" selection-end-line="4666" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrhDraw.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
+      <file leaf-file-name="AbstractController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+            <state relative-caret-position="485">
+              <caret line="58" column="9" lean-forward="false" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Swoole/Server.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="193" column="17" lean-forward="false" selection-start-line="193" selection-start-column="17" selection-end-line="193" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmpApi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Components/AmpApi/AmpApi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractTask.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractTask.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
               <folding>
-                <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
+                <element signature="e#33#56#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="easywechat.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Log/easywechat.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Amp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/Task/Amp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+              <folding>
+                <marker date="1517795517000" expanded="true" signature="315:387" ph="select train... $" />
+                <marker date="1517795517000" expanded="true" signature="572:649" ph="update ${{$t... " />
+                <marker date="1517795517000" expanded="true" signature="2041:2297" ph="update crh_s... " />
               </folding>
             </state>
           </provider>
@@ -113,6 +167,11 @@
       <find>setRequest</find>
       <find>getContent</find>
       <find>call_user_func_array</find>
+      <find>addnew</find>
+      <find>fetchAll</find>
+      <find>fetchall</find>
+      <find>宿迁</find>
+      <find>addNewStation</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,10 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/FrameEntry.php" />
-        <option value="$PROJECT_DIR$/Core/Framework/BaseRequest.php" />
-        <option value="$PROJECT_DIR$/Core/Framework/Request/RequestUpload.php" />
-        <option value="$PROJECT_DIR$/Core/Framework/Request/GetRequest.php" />
         <option value="$PROJECT_DIR$/Core/Framework/Request/RequestServer.php" />
         <option value="$PROJECT_DIR$/Core/Framework/Request/RequestPost.php" />
         <option value="$PROJECT_DIR$/App/Controller/DemoController.php" />
@@ -167,11 +222,15 @@
         <option value="$PROJECT_DIR$/Core/Framework/Request/RequestGet.php" />
         <option value="$PROJECT_DIR$/Config/config.php" />
         <option value="$PROJECT_DIR$/App/Components/Crh/CrhDraw.php" />
-        <option value="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
         <option value="$PROJECT_DIR$/App/Components/Crh/crh.html" />
         <option value="$PROJECT_DIR$/Core/Framework/Response.php" />
+        <option value="$PROJECT_DIR$/Core/Uti/DB/MysqliRecord.php" />
+        <option value="$PROJECT_DIR$/App/Components/AmpApi/AmpApi.php" />
+        <option value="$PROJECT_DIR$/Core/Framework/AbstractTask.php" />
+        <option value="$PROJECT_DIR$/App/Task/Amp.php" />
         <option value="$PROJECT_DIR$/Log/Server/swoole.log" />
         <option value="$PROJECT_DIR$/App/Controller/CrhController.php" />
+        <option value="$PROJECT_DIR$/App/Components/Crh/DrawSvg.php" />
       </list>
     </option>
   </component>
@@ -206,10 +265,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1890" />
     <option name="y" value="23" />
-    <option name="width" value="1890" />
-    <option name="height" value="1057" />
+    <option name="width" value="1280" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -229,8 +287,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,39 +343,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TinySwoole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TinySwoole" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TinySwoole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TinySwoole" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,6 +362,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TinySwoole" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Crh" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -499,27 +547,30 @@
       <workItem from="1517273981648" duration="2607000" />
       <workItem from="1517361400634" duration="3353000" />
       <workItem from="1517447598871" duration="10036000" />
-      <workItem from="1517532750623" duration="796000" />
+      <workItem from="1517532750623" duration="7799000" />
+      <workItem from="1517550640167" duration="1294000" />
+      <workItem from="1517795302011" duration="2933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245305000" />
+    <option name="totallyTimeSpent" value="256535000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1890" y="23" width="1890" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16558442" sideWeight="0.49501246" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16962843" sideWeight="0.49501246" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16891192" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16396104" sideWeight="0.50498754" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16788322" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16396104" sideWeight="0.50498754" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -570,24 +621,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/Traits/ResponseCastable.php" />
-    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/ServerGuard.php" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatOthers.php" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatProperty.php" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatVideo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatVoice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Components/Wechat/WechatMessageType/WechatLink.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -606,13 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Swoole/Server.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="141" column="48" lean-forward="false" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -712,13 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Controller/DemoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Controller/MlController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -736,20 +755,6 @@
         <state relative-caret-position="237">
           <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Uti/DB/MysqliRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Uti/DB/Mysqli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1166">
-          <caret line="52" column="24" lean-forward="false" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -780,6 +785,115 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh_bk.html" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.svg" />
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html" />
+    <entry file="file://$PROJECT_DIR$/Core/Uti/DB/Mysqli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="142" column="25" lean-forward="false" selection-start-line="142" selection-start-column="25" selection-end-line="142" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Uti/DB/MysqliRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Task/Test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Swoole/AsyncTask.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../swoole-ide-helper-master/src/Server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4811">
+          <caret line="283" column="20" lean-forward="false" selection-start-line="283" selection-start-column="20" selection-end-line="283" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractTask.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#33#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Controller/DemoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="58" column="9" lean-forward="false" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Swoole/Server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="193" column="17" lean-forward="false" selection-start-line="193" selection-start-column="17" selection-end-line="193" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/AmpApi/AmpApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Task/Amp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <marker date="1517795517000" expanded="true" signature="315:387" ph="select train... $" />
+            <marker date="1517795517000" expanded="true" signature="572:649" ph="update ${{$t... " />
+            <marker date="1517795517000" expanded="true" signature="2041:2297" ph="update crh_s... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -788,72 +902,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh_bk.html" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.svg" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CRH.json" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/crh.html" />
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
-          <folding>
-            <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Framework/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/Framework/AbstractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Log/Server/swoole.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="1645" column="59" lean-forward="true" selection-start-line="1645" selection-start-column="59" selection-end-line="1645" selection-end-column="59" />
+        <state relative-caret-position="-174">
+          <caret line="4666" column="38" lean-forward="false" selection-start-line="4666" selection-start-column="38" selection-end-line="4666" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Controller/CrhController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+        <state relative-caret-position="253">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
-            <marker date="1517533283000" expanded="true" signature="408:465" ph="select * fro... crh_station_lists" />
-            <marker date="1517533283000" expanded="true" signature="1256:1334" ph="select * fro... train_name" />
-            <marker date="1517533283000" expanded="true" signature="2485:2556" ph="insert into " />
-            <marker date="1517533283000" expanded="true" signature="3131:3186" ph="select id fr... $" />
-            <marker date="1517533283000" expanded="true" signature="4831:4908" ph="select train... crh_train_group_bind" />
-            <marker date="1517533283000" expanded="true" signature="5093:5256" ph="insert into crh_train_group_bind... " />
-            <marker date="1517533283000" expanded="true" signature="5306:5383" ph="select train... crh_train_group_bind" />
-            <marker date="1517533283000" expanded="true" signature="5762:5854" ph="insert into crh_train_group_bind_details... " />
-            <marker date="1517533283000" expanded="true" signature="6183:6197" ph="select * fro... crh_train_group_bind" />
-            <marker date="1517533283000" expanded="true" signature="6183:6216" ph="select * fro... " />
-            <marker date="1517533283000" expanded="true" signature="6447:6666" ph="select l.lon... crh_station_lists" />
+            <marker date="1517796630000" expanded="true" signature="477:534" ph="select * fro... crh_station_lists" />
+            <marker date="1517796630000" expanded="true" signature="1325:1403" ph="select * fro... train_name" />
+            <marker date="1517796630000" expanded="true" signature="2778:2849" ph="insert into " />
+            <marker date="1517796630000" expanded="true" signature="3424:3479" ph="select id fr... $" />
+            <marker date="1517796630000" expanded="true" signature="3424:3496" ph="select id fr... $" />
+            <marker date="1517796630000" expanded="true" signature="5127:5204" ph="select train... crh_train_group_bind" />
+            <marker date="1517796630000" expanded="true" signature="5389:5552" ph="insert into crh_train_group_bind... " />
+            <marker date="1517796630000" expanded="true" signature="5602:5679" ph="select train... crh_train_group_bind" />
+            <marker date="1517796630000" expanded="true" signature="6058:6150" ph="insert into crh_train_group_bind_details... " />
+            <marker date="1517796630000" expanded="true" signature="6479:6493" ph="select * fro... crh_train_group_bind" />
+            <marker date="1517796630000" expanded="true" signature="6479:6512" ph="select * fro... " />
+            <marker date="1517796630000" expanded="true" signature="6743:6962" ph="select l.lon... crh_station_lists" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/CrhDraw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <marker date="1517452329000" expanded="true" signature="1732:1738" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Components/Crh/DrawSvg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -2,6 +2,8 @@
 namespace Core\Framework;
 
 use Core\Swoole\Server;
+use Core\Uti\DB\Mysqli;
+use Core\Uti\Tools\Config;
 
 abstract class AbstractTask
 {
@@ -21,6 +23,19 @@ abstract class AbstractTask
     function __construct($dataForTask = null)
     {
         $this->dataForTask = $dataForTask;
+    }
+
+    /**
+     * @return mixed
+     */
+    function mysqli()
+    {
+        try{
+            return Mysqli::getInstance(Config::getInstance()->getConfig('config.mysqli'));
+        }catch (\Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
     function getDataForTask()

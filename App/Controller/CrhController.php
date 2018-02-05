@@ -3,7 +3,10 @@ namespace App\Controller;
 
 use App\Components\Crh\CrhDraw;
 use App\Components\Crh\DrawSvg;
+use App\Task\Amp;
 use Core\Framework\AbstractController;
+use Core\Swoole\AsyncTask;
+use Core\Swoole\Server;
 
 class CrhController extends AbstractController
 {
@@ -45,8 +48,8 @@ class CrhController extends AbstractController
                 $draw = new CrhDraw();
                 $draw->crh->setResize($draw->resize);
                 foreach ($data as $k => $v) {
-                    $data[$k]['longtitude'] = $draw->crh->recountLo($v['longtitude']);
-                    $data[$k]['latitude'] = $draw->crh->recountLa($v['latitude']);
+                    $data[$k]['longtitude'] = !empty($v['longtitude']) ? $draw->crh->recountLo($v['longtitude']) : 0;
+                    $data[$k]['latitude'] = !empty($v['latitude']) ? $draw->crh->recountLa($v['latitude']) : 0;
                 }
                 $this->response()->writeJson(200, $data, "ok");
             }else{
@@ -55,6 +58,12 @@ class CrhController extends AbstractController
         }else{
             $this->response()->writeJson(500, '', 'error');
         }
+    }
+
+    public function flushAll()
+    {
+        Server::getInstance()->getServer()->task(new Amp());
+        $this->response()->writeJson(200, '', 'task is pushing');
     }
 
     public function addNewStation()
@@ -66,7 +75,7 @@ class CrhController extends AbstractController
                 $station_name .= '站';
             }
             if($this->checkStationExists($station_name)) {
-                return $this->response()->writeJson(400, '', 'err');
+                $this->response()->writeJson(400, '', 'err');
             }else {
                 $this->mysqli()->query("insert into {$this->crh_station} (train_name) value ('{$station_name}')");
                 $data = [
@@ -85,7 +94,7 @@ class CrhController extends AbstractController
 
     private function checkStationExists($station_name)
     {
-        $result = $this->mysqli()->query("select id from {$this->crh_station} where train_name = ".$station_name)->fetchall();
+        $result = $this->mysqli()->query("select id from {$this->crh_station} where train_name = '{$station_name}'")->fetchall();
         if($result) {
             return $result[0]['id'];
         }else{

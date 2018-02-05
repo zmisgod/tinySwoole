@@ -7,6 +7,9 @@ class MysqliRecord
 
     public function __construct($result)
     {
+        if(is_bool($result)) {
+            throw new \Exception("result [bool] to mysqli_record");
+        }
         $this->result = $result;
     }
 

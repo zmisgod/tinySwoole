@@ -51,7 +51,7 @@ class DrawSvg
 
     public function recountLo($number)
     {
-        return round(($number - 90) * $this->resize, 5);
+        return round(($number - 70) * $this->resize, 5);
     }
 
     public function recountLa($number)
