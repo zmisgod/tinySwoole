@@ -8,15 +8,28 @@ abstract class AbstractController
 {
     protected $actionName = null;
     protected $callArgs = null;
+    protected $controllerName = null;
     protected $mysqli;
 
     function actionName($actionName = null)
     {
-        if($actionName === null) {
-            return $this->actionName;
-        }else{
+        if($actionName !== null) {
             $this->actionName = $actionName;
+        }else{
+            return $this->actionName;
         }
+    }
+
+    function controllerName($controllerName = null)
+    {
+        if($controllerName !== null) {
+            $this->controllerName = $controllerName;
+        }
+    }
+
+    function displayNotFound()
+    {
+        $this->response()->writeJson(400, 'ok', 'sds');
     }
 
     /**

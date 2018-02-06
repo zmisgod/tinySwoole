@@ -41,6 +41,17 @@ default config
 
 其中，并且类文件的方法需要为公开的方法（public function）并且类需要继承`Core\Framework\AbstractController`
 
+### HTML模版引擎
+
+支持HTML模版，需要将控制器继承`Core\Framework\ViewController`,然后在`App`目录下新建`View`
+因为本框架现仅支持2级路由，所以`View`的下一级目录则为控制器的小写名称，然后此目录下则为某方法对应的view视图
+
+|路由|对应视图文件|
+|-|-|
+|`http://127.0.0.1:9519/demo/template`|`App\View\demo\template.php`|
+
+如果对应的视图找不到则会显示404页面，404页面默认在`Public`目录下
+
 ### TCP
 
 如果需要使用`tcp`服务，需要定义一个类，此类需要继承`Core\Framework\AbstractTcpInstance`抽象类,tcp client需要发送三个参数的json encode的字符串

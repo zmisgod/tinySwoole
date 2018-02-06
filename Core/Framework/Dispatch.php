@@ -56,6 +56,7 @@ class Dispatch
             }
         }
         if(!Response::getInstance()->isEndResponse()) {
+            $result->controllerName($cName);
             $result->__call($mName);
         }
     }

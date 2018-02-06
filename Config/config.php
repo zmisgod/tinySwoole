@@ -1,9 +1,9 @@
 <?php
 return [
     'mysqli' => [
-        'host' => '127.0.0.1',
+        'host' => 'zmis.me',
         'user' => 'root',
-        'password' => '111111',
+        'password' => '9647463..',
         'port' => 3306,
         'charset' => 'utf8',
         'database' => 'mytest'

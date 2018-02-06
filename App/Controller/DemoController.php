@@ -2,15 +2,33 @@
 namespace App\Controller;
 
 use App\Task\Test;
-use Core\Framework\AbstractController;
+use Core\Framework\ViewController;
 use Core\Swoole\Server;
 use Core\Swoole\Timer;
 
-class DemoController extends AbstractController
+class DemoController extends ViewController
 {
     public function index()
     {
         $this->response()->writeJson(200, "2this DemoController can show how to use swoole function in this framework, just see the code!");
+    }
+
+    /**
+     * 支持模版引擎
+     */
+    public function template()
+    {
+        $name = $this->request()->input->get->getParam('name');
+        $age = $this->request()->input->get->getParam('age');
+        $this->display(['name' => $name, 'age' => $age]);
+    }
+
+    /**
+     * 如果找不到相应的模版，则会出现404错误页面
+     */
+    public function notfound()
+    {
+        $this->display();
     }
 
     /**
