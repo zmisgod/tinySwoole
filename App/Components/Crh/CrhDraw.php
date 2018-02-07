@@ -11,6 +11,7 @@ class CrhDraw
     private $_valid_import_type = ['svg', 'html', 'json'];
     private $import_type = 'svg';
     private $result_svg;
+    private $import_path;
 
     /**
      * @var DrawSvg
@@ -41,6 +42,11 @@ class CrhDraw
             throw new \Exception("Invalid import type :" . $import_type);
         }
         $this->import_type = $import_type;
+    }
+
+    public function setImportPath($path)
+    {
+        $this->import_path = $path;
     }
 
     public function run()
@@ -80,7 +86,12 @@ class CrhDraw
         if($this->import_type == 'html') {
 
         }elseif($this->import_type == 'json'){
-            file_put_contents(__DIR__.'/CRH.json', json_encode($this->result_svg));
+            if(empty($this->import_path)) {
+                $path = __DIR__.'/';
+            }else{
+                $path = $this->import_path;
+            }
+            file_put_contents($path.'CRH.json', json_encode($this->result_svg));
             return [true,'生成成功'];
         }else{
             $parse = implode('', $this->result_svg);

@@ -11,7 +11,7 @@ class Amp extends AbstractTask
     function handleTask(\swoole_server $server,$task_id,$from_worker_id)
     {
         $row = [];
-        $data = $this->mysqli()->query("select train_name, id from {$this->crh_station} where longtitude is null")->fetchall();
+        $data = $this->mysqli()->query("select train_name, id from {$this->crh_station} where longtitude is null and disabled !='1'")->fetchall();
         foreach($data as $v) {
             if(mb_substr($v['train_name'], -1) != '站') {
                 $v['train_name'] .= '站';
@@ -46,6 +46,9 @@ class Amp extends AbstractTask
                     $sql = "update crh_station_lists set train_address = '{$p_address}', longtitude = '{$longtitude}', latitude = '{$latitude}', citycode = '{$citycode}', adcode='{$adcode}', pccode='{$pccode}', train_name='{$train_name}' where id = '{$v['id']}' and longtitude is null";
                     $this->mysqli()->query($sql);
                 }
+            }else{
+                $sql = "update crh_station_lists set disabled='1' where id = '{$v['id']}' and longtitude is null";
+                $this->mysqli()->query($sql);
             }
         }
     }

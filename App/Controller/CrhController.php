@@ -23,6 +23,7 @@ class CrhController extends AbstractController
             $crh->setData($data);
             $crh->setType('circle');
             $crh->importType('json');
+            $crh->setImportPath(ROOT.'Public/');
             list($ok, $msg) = $crh->run();
             if($ok) {
                 $status = 200;
