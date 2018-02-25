@@ -82,6 +82,8 @@ Mysqli::getInstance()->setDebug(true)->query('show tables')->printDebug();
 `$serverConfig = Config::getInstance()->getConfig('config.server');`<br />
 其中，config为Config下的config.php文件
 
+#### 生产与开发配置分离
+为了线上配置与开发配置便于管理，防止开发的配置文件用于生产环境，您可以在根目录创建一个`.env`文件，在其中写相应的配置，然后再在`Config\config.php`中使用`Core\Uti\Tools\Tools::getInstance()->getEnv('KEY')`获取`KEY`的配置(请看`.env_sample`示例)。
 
 ### Wechat 微信
 

@@ -1,17 +1,17 @@
 <?php
 return [
     'mysqli' => [
-        'host' => 'zmis.me',
-        'user' => 'root',
-        'password' => '9647463..',
-        'port' => 3306,
-        'charset' => 'utf8',
-        'database' => 'mytest'
+        'host' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_HOTS'),
+        'user' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_USERNAME'),
+        'password' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_PASSWORD'),
+        'port' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_PORT'),
+        'charset' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_CHARSET'),
+        'database' => Core\Uti\Tools\Tools::getInstance()->getEnv('MYSQL_DATABASE'),
     ],
     'wechat' => [
-        'app_id'    => 'wx187323b17af46795',
-        'secret'    => 'e313b9b27058a1721033256779b95230',
-        'token'     => 'zmisgod',
+        'app_id'    => Core\Uti\Tools\Tools::getInstance()->getEnv('WECHAT_APP_ID'),
+        'secret'    => Core\Uti\Tools\Tools::getInstance()->getEnv('WECHAT_SECRET'),
+        'token'     => Core\Uti\Tools\Tools::getInstance()->getEnv('WECHAT_TOKEN'),
         'log' => [
             'level' => 'debug',
             'file'  => ROOT . 'Log/easywechat.log',

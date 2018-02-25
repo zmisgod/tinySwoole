@@ -37,4 +37,28 @@ class Tools
         //打印获得的数据
         return $output;
     }
+
+    function getEnv($key = false)
+    {
+        $configs = file_get_contents(ROOT.'.env');
+        $saveConfigs = [];
+        if($configs) {
+            foreach (explode("\n", $configs) as $v) {
+                if($v) {
+                    $config = explode("=", $v);
+                    if(isset($config[1]) && $config[1]) {
+                        $saveConfigs[$config[0]] = $config[1];
+                    }
+                }
+            }
+        }
+        if($key === false) {
+            return $saveConfigs;
+        }
+        if(isset($saveConfigs[$key])) {
+            return $saveConfigs[$key];
+        }else{
+            return '';
+        }
+    }
 }
