@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf45b67f-7473-48c8-a455-9f13d2221c22" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TinySwoole.iml" afterPath="$PROJECT_DIR$/.idea/TinySwoole.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/CrhController.php" afterPath="$PROJECT_DIR$/App/Http/Controller/CrhController.php" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/DemoController.php" afterPath="$PROJECT_DIR$/App/Http/Controller/DemoController.php" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/IndexController.php" afterPath="$PROJECT_DIR$/App/Http/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/MlController.php" afterPath="$PROJECT_DIR$/App/Http/Controller/MlController.php" />
-      <change beforePath="$PROJECT_DIR$/App/Controller/WechatController.php" afterPath="$PROJECT_DIR$/App/Http/Controller/WechatController.php" />
-      <change beforePath="$PROJECT_DIR$/App/View/demo/template.php" afterPath="$PROJECT_DIR$/App/Http/View/demo/template.php" />
-      <change beforePath="$PROJECT_DIR$/Config/config.php" afterPath="$PROJECT_DIR$/Config/config.php" />
-      <change beforePath="$PROJECT_DIR$/Core/Framework/Dispatch.php" afterPath="$PROJECT_DIR$/Core/Framework/Dispatch.php" />
-      <change beforePath="$PROJECT_DIR$/Core/Swoole/Server.php" afterPath="$PROJECT_DIR$/Core/Swoole/Server.php" />
-      <change beforePath="$PROJECT_DIR$/Log/Server/swoole.log" afterPath="$PROJECT_DIR$/Log/Server/swoole.log" />
-      <change beforePath="$PROJECT_DIR$/Log/easywechat.log" afterPath="$PROJECT_DIR$/Log/easywechat.log" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/kill.php" afterPath="" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,6 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="-1852">
+                <caret line="33" column="15" lean-forward="true" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Server.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/Swoole/Server.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,21 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/Uti/Tools/Log.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="396">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -218,11 +206,11 @@
         <option value="$PROJECT_DIR$/kill.php" />
         <option value="$PROJECT_DIR$/App/Http/Controller/IndexController.php" />
         <option value="$PROJECT_DIR$/Core/Uti/Tools/Log.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Core/Swoole/Server.php" />
         <option value="$PROJECT_DIR$/Config/config.php" />
         <option value="$PROJECT_DIR$/Log/Debug/debug.log" />
         <option value="$PROJECT_DIR$/Log/Server/swoole.log" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -506,12 +494,12 @@
       <workItem from="1517795302011" duration="16289000" />
       <workItem from="1517967025059" duration="2101000" />
       <workItem from="1519540197201" duration="2104000" />
-      <workItem from="1519542591721" duration="5351000" />
+      <workItem from="1519542591721" duration="5540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279447000" />
+    <option name="totallyTimeSpent" value="279636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="23" width="1702" height="909" extended-state="0" />
@@ -859,17 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="264">
-            <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Core/Uti/Tools/Log.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10">
@@ -953,9 +930,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        <state relative-caret-position="396">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-1852">
+            <caret line="33" column="15" lean-forward="true" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
