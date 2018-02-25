@@ -43,7 +43,7 @@ class Tools
         $configs = file_get_contents(ROOT.'.env');
         $saveConfigs = [];
         if($configs) {
-            foreach (explode("\n", $configs) as $v) {
+            foreach (explode(PHP_EOL, $configs) as $v) {
                 if($v) {
                     $config = explode("=", $v);
                     if(isset($config[1]) && $config[1]) {

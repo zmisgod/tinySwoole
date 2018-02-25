@@ -16,7 +16,7 @@ mysql断线重连特性，助力生产服务。
 ## 相关命令
 
 |操作|介绍|
-|-|-|-|
+|-|-|
 |php index.php start|启动|
 |php index.php stop|关闭|
 |php index.php reload|重启|
