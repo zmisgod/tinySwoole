@@ -4,7 +4,6 @@ namespace App\Http\Controller;
 use App\Components\Wechat\WechatAbstract;
 use App\Components\Wechat\WechatMessageType\WechatEvent;
 use App\Components\Wechat\WechatMessageType\WechatException;
-use App\Components\Wechat\WechatMessageType\WechatProperty;
 use App\Components\Wechat\WechatRequest;
 
 class WechatController extends WechatAbstract
