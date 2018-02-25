@@ -17,6 +17,10 @@ return [
             'file'  => ROOT . 'Log/easywechat.log',
         ],
     ],
+    'framework' => [
+        'debug' => false,
+        'log_folder' => ROOT. 'Log/Debug/'
+    ],
     'server' => [
         'host' => '127.0.0.1',
         'port' => 9519,
@@ -28,7 +32,7 @@ return [
             'open_http_protocol' => true,
             'task_worker_num' => 1, //异步任务进程
             "task_max_request" => 10,
-            'max_request' => 10000,//强烈建议设置此配置项
+            'max_request' => 5000,//强烈建议设置此配置项
             'worker_num' => 4,
             'log_file' => ROOT . "/Log/Server/swoole.log",
             'pid_file' => ROOT . "/Log/Server/pid.pid",
@@ -40,20 +44,20 @@ return [
                 'open' => true,//是否开启tcp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_TCP, //端口类型
                 'port' => 9520,
-                'socket_type' => SWOOLE_SOCK_TCP,
+                'socket_type' => SWOOLE_TCP,
                 'setting' => [
-                    'open_eof_split' => true,
-                    'package_eof' => "\r\n",
+                    "open_eof_check"=>false,
+                    "package_max_length"=>2048,
                 ]
             ],
             'udp' => [
                 'open' => true,//是否开启udp
                 'type' => \Core\Swoole\Server::LISTEN_PORT_UDP,//端口类型
                 'port' => 9521,
-                'socket_type' => SWOOLE_SOCK_UDP,
+                'socket_type' => SWOOLE_UDP,
                 'setting' => [
-                    'open_eof_split' => true,
-                    'package_eof' => "\r\n",
+                    "open_eof_check"=>false,
+                    "package_max_length"=>2048,
                 ]
             ]
         ]

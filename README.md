@@ -8,7 +8,10 @@ mysql断线重连特性，助力生产服务。
 - Framework 框架的核心文件，包括处理 Http 相关请求类，基础类等等
 - Swoole swoole事件触发后对应的处理
 - IO 处理IO
-- Util 一些常用的工具 包括: mysql
+- Util 一些常用的工具
+    - mysqli
+    - log
+
 
 ## 相关命令
 
@@ -25,7 +28,6 @@ mysql断线重连特性，助力生产服务。
 ## 使用
 
 如果想要使用多端口监听`tcp`、`udp`，需要在配置文件中将`multi_port`设置为`true`,并在`tcp`或者`udp`的`open`选项中设置为`true`开启。<br />
-default config
 
 |server|port|open|
 |-|-|-|
@@ -37,9 +39,9 @@ default config
 
 |路由|对应文件|方法名|
 |-|-|-|
-|`http://127.0.0.1:9519/index/benchmark`|`App\Controller\IndexController.php`|`benchmark()`|
+|`http://127.0.0.1:9519/index/benchmark`|`App\Controller\Http\IndexController.php`|`benchmark()`|
 
-其中，并且类文件的方法需要为公开的方法（public function）并且类需要继承`Core\Framework\AbstractController`
+其中，并且类文件的方法需要为公开的方法（public function）并且类需要继承`App\Http\Controller`
 
 ### HTML模版引擎
 
@@ -48,21 +50,9 @@ default config
 
 |路由|对应视图文件|
 |-|-|
-|`http://127.0.0.1:9519/demo/template`|`App\View\demo\template.php`|
+|`http://127.0.0.1:9519/demo/template`|`App\Http\View\demo\template.php`|
 
 如果对应的视图找不到则会显示404页面，404页面默认在`Public`目录下
-
-### TCP
-
-如果需要使用`tcp`服务，需要定义一个类，此类需要继承`Core\Framework\AbstractTcpInstance`抽象类,tcp client需要发送三个参数的json encode的字符串
-```
-[
- 'obj' => 'App\Tcp\YourClassName',
- 'action' => 'functionName',
- 'params' => []
-]
-```
-详情请见`App\Controller\DemoController`的`tcpClient`方法
 
 ### Mysql
 

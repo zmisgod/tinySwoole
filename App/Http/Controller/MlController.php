@@ -1,12 +1,11 @@
 <?php
-namespace App\Controller;
+namespace App\Http\Controller;
 
-
-use Core\Framework\AbstractController;
+use App\Http\Controller;
 use Core\Uti\Tools\Tools;
 use Phpml\Regression\LeastSquares;
 
-class MlController extends AbstractController
+class MlController extends Controller
 {
     public function index()
     {

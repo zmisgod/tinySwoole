@@ -2,7 +2,6 @@
 namespace Core\Framework;
 
 use Core\Uti\Tools\Di;
-use Core\Uti\Tools\Register;
 
 class Dispatch
 {
@@ -16,6 +15,10 @@ class Dispatch
         return self::$instance;
     }
 
+    /**
+     * @throws \Exception
+     * @throws \ReflectionException
+     */
     public function dispatch()
     {
         if(Response::getInstance()->isEndResponse()){
@@ -36,7 +39,7 @@ class Dispatch
         if($mName == '') {
             $mName = 'index';
         }
-        $className = 'App\Controller\\'.ucfirst($cName).'Controller';
+        $className = 'App\Http\Controller\\'.ucfirst($cName).'Controller';
         $result = Di::getInstance()->get($className);
         if(!$result) {
             if(file_exists(ROOT.'/'.str_replace('\\', '/', rtrim($className)).'.php')) {

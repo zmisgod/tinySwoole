@@ -1,22 +1,19 @@
 <?php
-namespace App\Controller;
+namespace App\Http\Controller;
 
-use App\Task\Test;
-use Core\Framework\AbstractController;
+use App\Http\Controller;
 use Core\Swoole\Server;
-use Core\Swoole\Timer;
-use Core\Uti\Tools\Tools;
-use Phpml\Classification\KNearestNeighbors;
-use Phpml\Regression\LeastSquares;
+use Core\Uti\Tools\Log;
 
-class IndexController extends AbstractController
+class IndexController extends Controller
 {
     /**
      * default controller
      */
     public function index()
     {
-        $this->response()->writeJson(200,"this is IndexController index method (default method)");
+        Log::getInstance()->log('star');
+        $this->response()->writeJson(200,"1this is IndexController index method (default method)");
     }
 
     /**

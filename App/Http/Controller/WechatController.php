@@ -1,13 +1,11 @@
 <?php
-namespace App\Controller;
+namespace App\Http\Controller;
 
 use App\Components\Wechat\WechatAbstract;
 use App\Components\Wechat\WechatMessageType\WechatEvent;
 use App\Components\Wechat\WechatMessageType\WechatException;
 use App\Components\Wechat\WechatMessageType\WechatProperty;
 use App\Components\Wechat\WechatRequest;
-use Core\Uti\Tools\Config;
-use EasyWeChat\Factory;
 
 class WechatController extends WechatAbstract
 {

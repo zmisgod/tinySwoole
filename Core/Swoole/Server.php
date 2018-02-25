@@ -178,21 +178,25 @@ class Server
 
     private function onTask()
     {
-        $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
-        if ($task_num) {
-            $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
-                try {
-                    if (is_string($data) && class_exists($data)) {
-                        $data = new $data();
+        try {
+            $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
+            if ($task_num) {
+                $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
+                    try {
+                        if (is_string($data) && class_exists($data)) {
+                            $data = new $data();
+                        }
+                        if ($data instanceof AbstractTask) {
+                            return $data->handleTask($server, $taskId, $workerId);
+                        }
+                        return null;
+                    } catch (\Exception $e) {
+                        return null;
                     }
-                    if ($data instanceof AbstractTask) {
-                        return $data->handleTask($server, $taskId, $workerId);
-                    }
-                    return null;
-                } catch (\Exception $e) {
-                    return null;
-                }
-            });
+                });
+            }
+        }catch (\Exception $e) {
+            return null;
         }
     }
 
@@ -220,19 +224,19 @@ class Server
      */
     private function listenMultiPort()
     {
-        foreach ($this->server_config['multi_port_settings'] as $server_type => $v) {
-            if ($v['open']) {
-                $this->listen_servers[$server_type.'_server'] = $v['setting'];
-                $this->{$server_type.'_server'} = $this->getServer()->addlistener($this->server_config['host'], $v['port'], $v['socket_type']);
-                $this->{$server_type.'_server'}->set($v['setting']);
-            }
-        }
-        if (!empty($this->listen_servers)) {
-            foreach ($this->listen_servers as $type => $setting) {
-                if ($type == self::LISTEN_PORT_TCP) {
-                    $this->tcpOnReceive();
-                } else if ($type == self::LISTEN_PORT_UDP) {
-                    $this->udpOnPacket();
+        if($this->server_config['multi_port']) {
+            foreach ($this->server_config['multi_port_settings'] as $server_type => $v) {
+                if ($v['open']) {
+                    $this->listen_servers[$server_type.'_server'] = $v['setting'];
+                    $this->{$server_type.'_server'} = $this->getServer()->addlistener($this->server_config['host'], $v['port'], $v['socket_type']);
+                    $this->{$server_type.'_server'}->set($v['setting']);
+                    if($server_type.'_server' == self::LISTEN_PORT_TCP) {
+                        $this->tcpOnConnect();
+                        $this->tcpOnReceive();
+                        $this->tcpOnClose();
+                    }else if($server_type.'_server' == self::LISTEN_PORT_UDP) {
+                        $this->udpOnPacket();
+                    }
                 }
             }
         }
@@ -241,24 +245,24 @@ class Server
     /**
      * 监听端口使用connect与close会出现swoole异常退出
      */
-//    private function tcpOnConnect()
-//    {
-//        $this->getTcpServer()->on('connect', function(\swoole_server $server, $fd){
-//            echo 'tcp fd = '.$fd. ' connected';
-//        });
-//    }
-//
-//    private function tcpOnClose()
-//    {
-//        $this->getTcpServer()->on('close', function(\swoole_server $server, $fd){
-//            echo 'tcp fd = '.$fd. ' closed';
-//        });
-//    }
+    private function tcpOnConnect()
+    {
+        $this->getTcpServer()->on('connect', function(\swoole_server $server, $fd){
+            echo 'tcp fd = '.$fd. ' connected'.PHP_EOL;
+        });
+    }
+
+    private function tcpOnClose()
+    {
+        $this->getTcpServer()->on('close', function(\swoole_server $server, $fd){
+            echo 'tcp fd = '.$fd. ' closed'.PHP_EOL;
+        });
+    }
 
     private function tcpOnReceive()
     {
         $this->getTcpServer()->on('Receive', function (\swoole_server $server, $fd, $from_id, $data) {
-            $receive = json_decode(rtrim($data, $this->listen_servers[self::LISTEN_PORT_TCP]), true);
+            $receive = json_decode(rtrim($data), true);
             if (class_exists($receive['obj'])) {
                 $obj = new $receive['obj']();
                 if ($obj instanceof AbstractTcpInstance) {

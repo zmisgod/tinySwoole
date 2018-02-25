@@ -1,12 +1,12 @@
 <?php
-namespace App\Controller;
+namespace App\Http\Controller;
 
+use App\Http\Controller;
 use App\Task\Test;
-use Core\Framework\ViewController;
 use Core\Swoole\Server;
 use Core\Swoole\Timer;
 
-class DemoController extends ViewController
+class DemoController extends Controller
 {
     public function index()
     {

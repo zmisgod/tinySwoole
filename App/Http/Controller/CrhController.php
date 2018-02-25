@@ -1,14 +1,12 @@
 <?php
-namespace App\Controller;
+namespace App\Http\Controller;
 
 use App\Components\Crh\CrhDraw;
-use App\Components\Crh\DrawSvg;
+use App\Http\Controller;
 use App\Task\Amp;
-use Core\Framework\AbstractController;
-use Core\Swoole\AsyncTask;
 use Core\Swoole\Server;
 
-class CrhController extends AbstractController
+class CrhController extends Controller
 {
     private $crh_station = 'crh_station_lists';
     private $table_list = 'crh_train_list';
