@@ -2,6 +2,7 @@
 namespace App\Components\Wechat;
 
 use Core\Uti\Tools\Config;
+use Core\Uti\Tools\Log;
 use EasyWeChat\Factory;
 
 class Wechat
@@ -18,14 +19,16 @@ class Wechat
         return self::$instance;
     }
 
-    public function __construct($config = null)
+    public function __construct()
     {
-        if(empty($config)) {
-            $config = Config::getInstance()->getConfig('config.wechat');
-        }
-        $application    = Factory::officialAccount($config);
+        $config = Config::getInstance()->getConfig('config.wechat');
+        if(!$config) {
+            Log::getInstance()->log('没有找到相关wechat配置文件');
+        }else {
+            $application = Factory::officialAccount($config);
 
-        $this->application = $application;
+            $this->application = $application;
+        }
     }
 
     public function getApplication()

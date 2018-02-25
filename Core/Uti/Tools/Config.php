@@ -33,8 +33,7 @@ class Config extends \DirectoryIterator
      * key可能是 config.server.HOST,则搜索 config.php文件夹下的server.HOST下的数据
      *
      * @param $key
-     * @return array|null
-     * @throws \Exception
+     * @return array|mixed|null
      */
     public function getConfig($key)
     {
@@ -45,7 +44,7 @@ class Config extends \DirectoryIterator
             if(isset($config[$v]) && $config[$v]) {
                 $config = $config[$v];
             }else{
-                throw new \Exception("do not have this config => ".$key);
+                return null;
             }
         }
         return $config;

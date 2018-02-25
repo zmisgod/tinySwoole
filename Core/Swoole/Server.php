@@ -178,25 +178,21 @@ class Server
 
     private function onTask()
     {
-        try {
-            $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
-            if ($task_num) {
-                $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
-                    try {
-                        if (is_string($data) && class_exists($data)) {
-                            $data = new $data();
-                        }
-                        if ($data instanceof AbstractTask) {
-                            return $data->handleTask($server, $taskId, $workerId);
-                        }
-                        return null;
-                    } catch (\Exception $e) {
-                        return null;
+        $task_num = Config::getInstance()->getConfig('config.server.setting.task_worker_num');
+        if ($task_num) {
+            $this->getServer()->on("task", function (\swoole_http_server $server, $taskId, $workerId, $data) {
+                try {
+                    if (is_string($data) && class_exists($data)) {
+                        $data = new $data();
                     }
-                });
-            }
-        }catch (\Exception $e) {
-            return null;
+                    if ($data instanceof AbstractTask) {
+                        return $data->handleTask($server, $taskId, $workerId);
+                    }
+                    return null;
+                } catch (\Exception $e) {
+                    return null;
+                }
+            });
         }
     }
 

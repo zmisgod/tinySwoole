@@ -15,14 +15,14 @@ class Log
 
     public function log($content, $outputFile = 'debug')
     {
-        try{
-            $logFolder = Config::getInstance()->getConfig('config.framework.log_folder');
+        $logFolder = Config::getInstance()->getConfig('config.framework.log_folder');
+        if(!$logFolder) {
+            file_put_contents(ROOT. 'Log/Debug/debug.log', $this->output('请配置Config文件夹下的config.php下面的framework.log_folder'));
+        }else{
             if(!file_exists($logFolder)) {
                 mkdir($logFolder, 0755, true);
             }
             file_put_contents($logFolder.$outputFile.'.log', $this->output($content), FILE_APPEND);
-        }catch (\Exception $e) {
-            file_put_contents(ROOT. 'Log/Debug/debug.log', $this->output('请配置Config文件夹下的config.php下面的framework.log_folder'));
         }
     }
 
